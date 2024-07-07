@@ -10,20 +10,11 @@
       "error",
       {
         "groups": [
-          [
-            "builtin",
-            "external"
-          ],
-          [
-            "internal",
-            "parent",
-            "sibling"
-          ]
+          ["builtin", "external"],
+          ["internal", "parent", "sibling"]
         ],
         "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
