@@ -1,6 +1,6 @@
 {
   "plugins": ["import", "unused-imports"],
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "prettier"],
   "rules": {
     "eqeqeq": "error",
     "quotes": ["error", "single"],
