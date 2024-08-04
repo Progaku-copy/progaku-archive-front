@@ -4,7 +4,7 @@ module.exports = {
   useTabs: true,
   singleQuote: true,
   printWidth: 90,
-  tabWidth: 2,
+  tabWidth: 4,
   jsxSingleQuote: true,
   bracketSpacing: true,
   htmlWhitespaceSensitivity: "ignore",

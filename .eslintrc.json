@@ -1,24 +1,84 @@
 {
-  "plugins": ["import", "unused-imports"],
-  "extends": ["next/core-web-vitals", "prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "plugin:@next/next/recommended",
+    "prettier",
+    "plugin:storybook/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "import",
+    "react-hooks"
+  ],
   "rules": {
-    "eqeqeq": "error",
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "indent": ["error", 2],
+    "react-hooks/exhaustive-deps": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "no-undef": "off",
+    "indent": [
+      "error",
+      4
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "prettier/prettier": "error",
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "import/no-duplicates": "error",
     "import/order": [
       "error",
       {
         "groups": [
-          ["builtin", "external"],
-          ["internal", "parent", "sibling"]
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
         ],
-        "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": ["builtin"],
+        "pathGroups": [
+          {
+            "pattern": "{react,react-dom/**,react-router-dom}",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@src/**",
+            "group": "parent",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
         "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
+          "order": "asc"
+        },
+        "newlines-between": "always"
       }
     ]
   }
