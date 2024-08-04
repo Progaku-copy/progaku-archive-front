@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-yarn.lock
 
 # testing
 /coverage
@@ -38,4 +37,6 @@ next-env.d.ts
 
 # editor
 .idea/
-# .vscode/
+.vscode/
+
+*storybook.log
