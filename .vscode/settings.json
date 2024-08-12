@@ -6,5 +6,6 @@
   "prettier.singleQuote": true,
   "yaml.format.singleQuote": true,
   "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single"
+  "typescript.preferences.quoteStyle": "single",
+  "markuplint.enable": true
 }
