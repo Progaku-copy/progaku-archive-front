@@ -19,7 +19,7 @@
 
 
 ## 開発フロー
-基本的な開発のフローについては[こちら](./docs/getting-started/team_dev_flow.md)を参照してください。
+基本的な開発のフローについては[こちら](https://github.com/Progaku-copy/progaku-archive/blob/main/docs/getting-started/team_dev_flow.md)を参照してください。
 バックエンドの方のドキュメントになりますが、大筋は同じです。  
 新規コンポーネントを作成する際は以下のフローで行なってください。
 1. ターミナルコマンド `yarn plop` 実行
