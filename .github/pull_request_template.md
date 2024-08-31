@@ -2,7 +2,7 @@
 
 <!-- ここに対応するissue番号を書く。issue番号が99なら、「- closes #99」と書く。 -->
 
-- closes #0
+-   closes #0
 
 ## 対応内容
 
