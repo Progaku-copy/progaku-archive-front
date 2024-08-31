@@ -5,3 +5,6 @@ yarn.lock
 
 # dotfile
 .env*
+
+#plop
+plop/**
