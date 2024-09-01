@@ -13,6 +13,7 @@
 		"plop": "plop"
 	},
 	"dependencies": {
+		"@fontsource/noto-sans": "^5.0.22",
 		"eslint-plugin-import": "^2.29.1",
 		"eslint-plugin-unused-imports": "^3.0.0",
 		"next": "14.0.4",
