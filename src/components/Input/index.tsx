@@ -13,7 +13,7 @@ const Input = ({ placeholder, label }: Props) => {
       <label className='pl-2'>{label}</label>
       <div>
         <input
-          className='h-11 border-2 border-light-gray rounded-lg pl-2'
+          className='h-11 border-2 border-light-gray rounded-lg pl-2 w-full'
           placeholder={placeholder}
           value={value}
           onChange={(e) => setValue(e.target.value)}
