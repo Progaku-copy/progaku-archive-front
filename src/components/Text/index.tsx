@@ -11,7 +11,7 @@ type Props = {
 
 const Text = ({ children, fontSize = 'm' }: Props) => {
 	return (
-		<div className={`font-noto ${FONT_SIZES[fontSize]} text-black`}>{children}</div>
+		<span className={`font-noto ${FONT_SIZES[fontSize]} text-black`}>{children}</span>
 	);
 };
 
