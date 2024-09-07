@@ -12,7 +12,7 @@ module.exports = {
 	},
 	plugins: [
 		iconsPlugin({
-			collections: getIconCollections(['mdi']),
+			collections: getIconCollections(['ic']),
 		}),
 	],
 };
