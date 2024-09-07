@@ -4,14 +4,11 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'black': '#333333',
+				black: '#333333',
 			},
-      fontFamily: {
-        sans: ['"Noto Sans"', 'sans-serif'],
-      },
-      fontSize: {
-        '2.5xl': '1.75rem',
-      },
+			fontSize: {
+				'2.5xl': '1.75rem',
+			},
 		},
 	},
 	plugins: [],
