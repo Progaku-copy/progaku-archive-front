@@ -1,22 +1,17 @@
-type FontSize = 'l' | 'm';
+const FONT_SIZES = {
+	l: 'text-2.5xl',
+	m: 'text-2xl',
+} as const;
 
 type Props = {
 	children: string;
-	fontSize?: FontSize;
+	fontSize?: keyof typeof FONT_SIZES;
 };
 
-const Title = ({ children, fontSize }: Props) => {
-	let fontSizeClassName;
-	switch (fontSize) {
-		case 'l':
-			fontSizeClassName = `text-2.5xl`;
-			break
-		case 'm':
-			fontSizeClassName = `text-2xl`;
-			break
-	}
-
-	return <div className={`${fontSizeClassName} text-black font-bold font-sans`}>{children}</div>;
+const Title = ({ children, fontSize = 'm' }: Props) => {
+	return (
+		<div className={`font-noto ${FONT_SIZES[fontSize]} text-black`}>{children}</div>
+	);
 };
 
 export default Title;
