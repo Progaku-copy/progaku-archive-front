@@ -8,6 +8,9 @@ module.exports = {
 			colors: {
 				'light-gray': '#B3B3B3',
 			},
+			textColor: {
+				black: '#333333',
+			},
 		},
 	},
 	plugins: [
