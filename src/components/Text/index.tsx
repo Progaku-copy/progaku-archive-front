@@ -7,11 +7,13 @@ const FONT_SIZES = {
 type Props = {
 	children: string;
 	fontSize?: keyof typeof FONT_SIZES;
+	color?: string;
 };
 
-const Text = ({ children, fontSize = 'm' }: Props) => {
+const Text = ({ children, fontSize = 'm', color = 'black' }: Props) => {
+	const textColor = `text-${color}`;
 	return (
-		<span className={`font-noto ${FONT_SIZES[fontSize]} text-black`}>{children}</span>
+		<span className={`font-noto ${FONT_SIZES[fontSize]} ${textColor}`}>{children}</span>
 	);
 };
 
