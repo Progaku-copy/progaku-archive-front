@@ -5,7 +5,7 @@ const FONT_SIZES = {
 } as const;
 
 type Props = {
-	children: string;
+	children: string | number;
 	fontSize?: keyof typeof FONT_SIZES;
 	color?: string;
 };
@@ -13,7 +13,9 @@ type Props = {
 const Text = ({ children, fontSize = 'm', color = 'black' }: Props) => {
 	const textColor = `text-${color}`;
 	return (
-		<span className={`font-noto ${FONT_SIZES[fontSize]} ${textColor}`}>{children}</span>
+		<span className={`font-noto ${FONT_SIZES[fontSize]} ${textColor}`}>
+			{children}
+		</span>
 	);
 };
 
