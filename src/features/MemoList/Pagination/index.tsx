@@ -2,7 +2,6 @@
 
 import Text from '@/components/Text';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
 
 type Props = {
 	totalPageNumber: number;
@@ -16,15 +15,11 @@ const Pagination = ({ totalPageNumber }: Props) => {
 
 	const currentPage = Number(pageNumber);
 
-	const createQueryString = useCallback(
-		(name: string, value: string) => {
-			const params = new URLSearchParams(searchParams.toString());
-			params.set(name, value);
-
-			return params.toString();
-		},
-		[searchParams],
-	);
+	const createQueryString = (name: string, value: string) => {
+		const params = new URLSearchParams(searchParams.toString());
+		params.set(name, value);
+		return params.toString();
+	};
 
 	const handleClickFirstPageButton = () => {
 		if (pageNumber === '1') return;
