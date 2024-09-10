@@ -6,11 +6,15 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				black: '#333333',
 				'light-gray': '#B3B3B3',
 			},
-			textColor: {
-				black: '#333333',
+			fontSize: {
+				'2.5xl': '1.75rem',
 			},
+		},
+		textColor: {
+			black: '#333333',
 		},
 	},
 	plugins: [
