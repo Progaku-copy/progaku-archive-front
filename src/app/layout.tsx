@@ -1,6 +1,13 @@
 import type { Metadata } from 'next';
+import { Noto_Sans_JP } from 'next/font/google';
 
 import './globals.css';
+
+const noto = Noto_Sans_JP({
+	display: 'swap',
+	preload: false,
+	variable: '--font-noto',
+});
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -9,7 +16,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang='ja'>
+		<html
+			lang='ja'
+			className={String(noto.variable)}
+		>
 			<body>{children}</body>
 		</html>
 	);
