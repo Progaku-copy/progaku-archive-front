@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons")
+const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons');
 
 module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}', './stories/**/*.{js,ts,jsx,tsx}'],
