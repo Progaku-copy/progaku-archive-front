@@ -1934,6 +1934,11 @@
     "@storybook/global" "^5.0.0"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-queryparams@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-queryparams/-/addon-queryparams-7.0.1.tgz#c1452e5503860e754f0060fd22ed3a68e745d975"
+  integrity sha512-hlOrjCbUdkg/f/7HaIBMvEp2oyNkBYaxifDdGNyUhdBzfuWUeWDTUwYDxUubbhuqNcSMbw5Cje34dE+hJaGR9A==
+
 "@storybook/addon-toolbars@8.2.9":
   version "8.2.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-toolbars/-/addon-toolbars-8.2.9.tgz#a3d92f5fdc021e5578c1085062f9b7989624b569"
