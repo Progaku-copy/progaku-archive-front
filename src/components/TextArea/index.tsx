@@ -1,31 +1,26 @@
-'use client';
-
-import { Dispatch, SetStateAction, useState } from 'react';
-import Text from '../Text';
+import React, { useState } from 'react';
 
 type Props = {
-	placeholder?: string;
-	label?: string;
-	row?: number;
-	value: string;
-	setValue: Dispatch<SetStateAction<string>>;
+    placeholder?: string;
 };
 
-const TextArea = ({ placeholder, label = '', row = 10, value, setValue }: Props) => {
-	return (
-		<div>
-			{label ?? <Text>{label}</Text>}
-			<div>
-				<textarea
-					className='w-full rounded-lg border-2 border-light-gray px-2'
-					rows={row}
-					placeholder={placeholder}
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
-				></textarea>
-			</div>
-		</div>
-	);
+const TextArea: React.FC<Props> = ({ placeholder }) => {
+    const [value, setValue] = useState('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setValue(e.target.value);
+    };
+
+    return (
+        <div>
+            <textarea
+                className="w-full h-[382px] border-2 border-light-gray rounded-lg p-2 resize-none"
+                placeholder={placeholder}
+                value={value}
+                onChange={handleChange}
+            />
+        </div>
+    );
 };
 
 export default TextArea;
