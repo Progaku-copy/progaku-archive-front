@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import TextArea from '.';
 
 const meta: Meta<typeof TextArea> = {
-  title: 'components/MemoCreate',
+  title: 'components/TextArea',
   component: TextArea,
 };
 

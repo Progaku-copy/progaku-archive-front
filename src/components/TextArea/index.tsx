@@ -4,7 +4,7 @@ type Props = {
   placeholder?: string;
 };
 
-const TextArea: React.FC<Props> = ({ placeholder = '本文' }) => {
+const TextArea: React.FC<Props> = ({ placeholder }) => {
   const [value, setValue] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
