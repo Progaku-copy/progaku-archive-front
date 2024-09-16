@@ -9,7 +9,6 @@
 		"lint": "next lint",
 		"format": "prettier --write .",
 		"sb": "storybook dev -p 6006",
-		"build-storybook": "storybook build",
 		"plop": "plop"
 	},
 	"dependencies": {
