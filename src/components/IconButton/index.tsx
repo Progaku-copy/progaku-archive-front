@@ -16,7 +16,7 @@ const IconButton = ({ label, iconType, onclickHandler }: Props) => {
 			onClick={onclickHandler}
 			className='flex h-full items-center'
 		>
-			<span className={`i-ic-${iconType} m-0.5 p-2`}></span>
+			<span className={`i-ic-${iconType} m-0.5 h-8 w-8 p-2`}></span>
 			{label && <Text>{label}</Text>}
 		</button>
 	);
