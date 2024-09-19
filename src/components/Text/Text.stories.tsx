@@ -14,5 +14,6 @@ export const Default: Story = {
 	args: {
 		children: 'サンプル',
 		fontSize: 'm',
+		color: 'black',
 	},
 };

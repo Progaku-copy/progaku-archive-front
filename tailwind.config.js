@@ -17,6 +17,7 @@ module.exports = {
 		},
 		textColor: {
 			black: '#333333',
+			white: '#FFFFFF',
 		},
 	},
 	plugins: [
