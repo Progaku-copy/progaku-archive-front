@@ -1,7 +1,8 @@
+"use client";
 import React, { useState } from 'react';
 
 type Props = {
-    placeholder?: string;
+    placeholder: string;
 };
 
 const TextArea: React.FC<Props> = ({ placeholder }) => {
