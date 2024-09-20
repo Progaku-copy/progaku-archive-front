@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 
 const LinkText: React.FC<Props> = ({ children, href }) => {
     return (
-        <a
+        <Link
             href={href}
             className="font-noto-sans text-[24px] text-white !text-white hover:opacity-70 transition-opacity duration-300"
             style={{ color: 'white' }}
@@ -16,7 +17,7 @@ const LinkText: React.FC<Props> = ({ children, href }) => {
             }}
         >
             {children}
-        </a>
+        </Link>
     );
 };
 
