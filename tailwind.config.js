@@ -15,10 +15,6 @@ module.exports = {
 				'2.5xl': '1.75rem',
 			},
 		},
-		textColor: {
-			black: '#333333',
-			white: '#FFFFFF',
-		},
 	},
 	plugins: [
 		iconsPlugin({
