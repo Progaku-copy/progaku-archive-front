@@ -41,7 +41,7 @@ const Table = <T,>({ columns, data }: Props<T>) => {
 							{columns.map((column, index) => (
 								<th
 									key={index}
-									className={`text-white px-4 py-3 ${column.header !== undefined ? 'border border-white' : ''}`}
+									className={`border-b-2 border-t-2 border-white px-4 py-3 ${column.header !== undefined ? 'border-l-2' : 'border-l-0'}`}
 									hidden={column.sizePercentMaxTen === 0}
 								>
 									{column.header ? (
@@ -60,7 +60,7 @@ const Table = <T,>({ columns, data }: Props<T>) => {
 								{columns.map((column, colIndex) => (
 									<td
 										key={colIndex}
-										className={`bg-gray-200 text-center ${column.header !== undefined ? 'border border-white' : ''}`}
+										className={`border-b-2 border-t-2 border-white bg-gray-200 px-4 py-2 text-center ${column.header !== undefined ? 'border-l-2' : 'border-l-0'}`}
 										hidden={column.sizePercentMaxTen === 0}
 									>
 										{(() => {
