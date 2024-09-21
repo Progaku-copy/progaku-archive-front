@@ -15,15 +15,15 @@ import Text from '../Text';
  *   - 一意に定まるならtrue。
  *   - それ以外ならfalse。
  *
- * sizePercentMaxTen: カラムのサイズを決定します。
- *   - 合計値が10となるように数値を入れます（小数可）。
+ * sizeRatio: カラムのサイズを決定します。
+ *   - 入力値/入力値の和 となるようにサイズの割合を保持します（小数可）。
  *   - 当該カラムを非表示にする場合は0を入れます。
  */
 type Column<T> = {
 	header?: string;
 	accessor: (row: T) => string | number | JSX.Element | undefined;
 	isPrimaryKey: boolean;
-	sizePercentMaxTen: number;
+	sizeRatio: number;
 };
 
 type Props<T> = {
@@ -32,6 +32,7 @@ type Props<T> = {
 };
 
 const Table = <T,>({ columns, data }: Props<T>) => {
+	const totalSize = columns.reduce((sum, column) => sum + column.sizeRatio, 0);
 	return (
 		<div className='flex justify-center'>
 			<div className='w-4/5'>
@@ -42,7 +43,10 @@ const Table = <T,>({ columns, data }: Props<T>) => {
 								<th
 									key={index}
 									className={`border-b-2 border-t-2 border-white px-4 py-3 ${column.header !== undefined ? 'border-l-2' : 'border-l-0'}`}
-									hidden={column.sizePercentMaxTen === 0}
+									hidden={column.sizeRatio === 0}
+									style={{
+										width: `${(column.sizeRatio / totalSize) * 100}%`,
+									}}
 								>
 									{column.header ? (
 										<Text color='white'>{column.header}</Text>
@@ -61,7 +65,10 @@ const Table = <T,>({ columns, data }: Props<T>) => {
 									<td
 										key={colIndex}
 										className={`border-b-2 border-t-2 border-white bg-gray-200 px-4 py-2 text-center ${column.header !== undefined ? 'border-l-2' : 'border-l-0'}`}
-										hidden={column.sizePercentMaxTen === 0}
+										style={{
+											width: `${(column.sizeRatio / totalSize) * 100}%`,
+										}}
+										hidden={column.sizeRatio === 0}
 									>
 										{(() => {
 											const cellValue = column.accessor(row);
