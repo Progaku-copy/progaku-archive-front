@@ -10,6 +10,7 @@ module.exports = {
 				'light-gray': '#B3B3B3',
 				green: '#2E7D32',
 				blue: '#3B6DCF',
+				'light-blue': '#6495ed',
 			},
 			fontSize: {
 				'2.5xl': '1.75rem',

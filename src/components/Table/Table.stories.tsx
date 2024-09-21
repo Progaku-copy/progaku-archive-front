@@ -7,34 +7,53 @@ type Tag = {
 	name: string;
 	describe: string;
 	priority: number;
+	editIcon?: string;
+	deleteIcon?: string;
 };
 
 type Column<T> = {
-	header: string;
-	accessor: (row: T) => string | number;
+	header?: string;
+	accessor: (row: T) => string | number | JSX.Element | undefined;
 	isPrimaryKey: boolean;
-	isHidden: boolean;
+	sizePercentMaxTen: number;
 };
 
 const columns: Column<Tag>[] = [
-	{ header: 'ID', accessor: (row: Tag) => row.id, isPrimaryKey: true, isHidden: true },
+	{
+		header: 'ID',
+		accessor: (row: Tag) => row.id ?? '',
+		isPrimaryKey: true,
+		sizePercentMaxTen: 0,
+	},
 	{
 		header: 'タグ名',
 		accessor: (row: Tag) => row.name,
 		isPrimaryKey: false,
-		isHidden: false,
+		sizePercentMaxTen: 2,
 	},
 	{
 		header: '説明',
 		accessor: (row: Tag) => row.describe,
 		isPrimaryKey: false,
-		isHidden: false,
+		sizePercentMaxTen: 7,
 	},
 	{
-		header: '説明',
+		header: '優先度',
 		accessor: (row: Tag) => row.priority,
 		isPrimaryKey: false,
-		isHidden: true,
+		sizePercentMaxTen: 0,
+	},
+	{
+		header: undefined,
+		accessor: (row: Tag) => row.editIcon,
+		isPrimaryKey: false,
+		sizePercentMaxTen: 0.5,
+	},
+	{
+		header: undefined,
+		accessor: (row: Tag) => row.deleteIcon,
+		isPrimaryKey: false,
+		sizePercentMaxTen: 0.5,
 	},
 ];
 
