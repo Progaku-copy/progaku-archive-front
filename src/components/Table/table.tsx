@@ -2,7 +2,7 @@ import Text from '../Text';
 
 type Column<T> = {
 	header?: string;
-	accessor: (row: T) => string | number;
+	accessor: (row: T) => string | number | JSX.Element;
 	isPrimaryKey: boolean;
 	isHidden: boolean;
 };
@@ -44,7 +44,17 @@ const Table = <T,>({ columns, data }: Props<T>) => {
 										className='border border-white bg-gray-200 text-center'
 										hidden={column.isHidden}
 									>
-										<Text>{column.accessor(row)}</Text>
+										{(() => {
+											const cellValue = column.accessor(row);
+											if (
+												typeof cellValue === 'string' ||
+												typeof cellValue === 'number'
+											) {
+												return <Text>{cellValue}</Text>;
+											} else {
+												return cellValue;
+											}
+										})()}
 									</td>
 								))}
 							</tr>
