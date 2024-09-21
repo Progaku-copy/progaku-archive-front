@@ -6,11 +6,15 @@ const FONT_SIZES = {
 type Props = {
 	children: string;
 	fontSize?: keyof typeof FONT_SIZES;
+	isBold?: boolean;
 };
 
-const Title = ({ children, fontSize = 'm' }: Props) => {
+const Title = ({ children, fontSize = 'm', isBold = false }: Props) => {
+	const fontBold = isBold ? 'font-bold' : '';
 	return (
-		<div className={`font-noto ${FONT_SIZES[fontSize]} text-black`}>{children}</div>
+		<span className={`font-noto ${FONT_SIZES[fontSize]} text-black ${fontBold}`}>
+			{children}
+		</span>
 	);
 };
 

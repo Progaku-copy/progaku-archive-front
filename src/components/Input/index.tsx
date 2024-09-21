@@ -1,17 +1,19 @@
+'use client';
+
 import { useState } from 'react';
 import Text from '../Text';
 
 type Props = {
 	placeholder: string;
-	label: string;
+	label?: string;
 };
 
-const Input = ({ placeholder, label }: Props) => {
+const Input = ({ placeholder, label = '' }: Props) => {
 	const [value, setValue] = useState('');
 
 	return (
 		<div>
-			<Text>{label}</Text>
+			{!!label ?? <Text>{label}</Text>}
 			<div>
 				<input
 					className='h-11 w-full rounded-lg border-2 border-light-gray px-2'
