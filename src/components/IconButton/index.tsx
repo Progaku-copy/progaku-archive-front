@@ -9,7 +9,7 @@ const ICON_SIZES = {
 
 const ICON_BUTTON_SIZES = {
 	m: 'h-10 w-10',
-	s: 'h-6 w-6',
+	s: 'h-5 w-5',
 } as const;
 
 const ICON_JUSTIFIED = {
@@ -38,7 +38,9 @@ const IconButton = ({
 				onClick={onClickHandler}
 				className={`flex ${ICON_JUSTIFIED[iconJustified]}`}
 			>
-				<span className={`i-ic-${iconType} m-0.5 p-2 ${ICON_SIZES[size]}`}></span>
+				<span
+					className={`i-ic-${iconType} ${label === undefined ? ICON_BUTTON_SIZES[size] : 'm-0.5 p-2'} ${ICON_SIZES[size]}`}
+				></span>
 				{label && <Text fontSize='m'>{label}</Text>}
 			</button>
 		</div>

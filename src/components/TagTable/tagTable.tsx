@@ -40,7 +40,9 @@ const TagTable = ({ data }: Props) => {
 				<table className='min-w-full max-w-lg table-fixed border-collapse border'>
 					<thead className='bg-light-blue border-4 border-white'>
 						<tr>
-							<th className={`max-w-xs border-2 border-white p-1 py-3`}>
+							<th
+								className={`max-w-tag-table-name border-2 border-white p-1 py-3`}
+							>
 								<Text color='white'>タグ名</Text>
 							</th>
 							<th
@@ -49,12 +51,12 @@ const TagTable = ({ data }: Props) => {
 								<Text color='white'>説明</Text>
 							</th>
 							<th
-								className={`border-b-2 border-l-0 border-t-2 border-white py-3`}
+								className={`max-w-tag-table-icon border-b-2 border-l-0 border-t-2 border-white py-3`}
 							>
 								{''}
 							</th>
 							<th
-								className={`border-b-2 border-l-0 border-t-2 border-white py-3`}
+								className={`max-w-tag-table-icon border-b-2 border-l-0 border-t-2 border-white py-3`}
 							>
 								{''}
 							</th>
@@ -66,27 +68,33 @@ const TagTable = ({ data }: Props) => {
 								key={row.id}
 								className={`bg-gray-200 py-8 text-center`}
 							>
-								<td className='max-w-xs border-2 border-white px-2 py-2'>
+								<td className='max-w-tag-table-name border-2 border-white px-2 py-2'>
 									<Text>{truncateString(10, row.name)}</Text>
 								</td>
 								<td className='border-b-2 border-l-2 border-t-2 border-white px-2 py-2'>
 									<Text>{truncateString(20, row.describe)}</Text>
 								</td>
-								<td className='border-b-2 border-l-0 border-t-2 border-white'>
-									<IconButton
-										iconType='edit'
-										iconJustified='top'
-										size='s'
-										onClickHandler={() => editOnClickIcon(row.id)}
-									></IconButton>
+								<td className='max-w-tag-table-icon border-b-2 border-l-0 border-t-2 border-white align-middle'>
+									<div className='inline-block'>
+										<IconButton
+											iconType='edit'
+											iconJustified='top'
+											size='s'
+											onClickHandler={() => editOnClickIcon(row.id)}
+										></IconButton>
+									</div>
 								</td>
-								<td className='border-b-2 border-l-0 border-t-2 border-white'>
-									<IconButton
-										iconType='delete'
-										iconJustified='top'
-										size='s'
-										onClickHandler={() => deleteOnClickIcon(row.id)}
-									></IconButton>
+								<td className='max-w-tag-table-icon border-b-2 border-l-0 border-t-2 border-white align-middle'>
+									<div className='inline-block'>
+										<IconButton
+											iconType='delete'
+											iconJustified='top'
+											size='s'
+											onClickHandler={() =>
+												deleteOnClickIcon(row.id)
+											}
+										></IconButton>
+									</div>
 								</td>
 							</tr>
 						))}
