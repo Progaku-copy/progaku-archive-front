@@ -1,7 +1,5 @@
 import Text from '../Text';
 
-
-
 /**
  * Column<T>はテーブルの各カラムを定義します。
  *
@@ -40,6 +38,9 @@ type Props<T> = {
  * @returns Table Component
  */
 const Table = <T,>({ columns, data }: Props<T>) => {
+	if (columns.length < 0) {
+		throw new Error('データがありません。');
+	}
 	const primaryKeyColumns = columns.filter((column) => column.isPrimaryKey);
 	const totalSize = columns.reduce((sum, column) => sum + column.sizeRatio, 0);
 	return (

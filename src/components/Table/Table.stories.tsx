@@ -58,11 +58,11 @@ const columns: Column<Tag>[] = [
 	},
 ];
 
-const editIconClicked = (id: number): void => {
+const editIconClicked = (id: number): any => {
 	console.log(`edit:ID = ${id}`);
 };
 
-const deleteIconClicked = (id: number): void => {
+const deleteIconClicked = (id: number): any => {
 	console.log(`delete:ID = ${id}`);
 };
 
@@ -75,13 +75,13 @@ const tags: Tag[] = [
 		editIcon: (
 			<IconButton
 				iconType='edit'
-				onclickHandler={editIconClicked(1)}
+				onClickHandler={editIconClicked(1)}
 			/>
 		),
 		deleteIcon: (
 			<IconButton
 				iconType='delete'
-				onclickHandler={deleteIconClicked(1)}
+				onClickHandler={deleteIconClicked(1)}
 			/>
 		),
 	},
@@ -93,13 +93,13 @@ const tags: Tag[] = [
 		editIcon: (
 			<IconButton
 				iconType='edit'
-				onclickHandler={editIconClicked(2)}
+				onClickHandler={editIconClicked(2)}
 			/>
 		),
 		deleteIcon: (
 			<IconButton
 				iconType='delete'
-				onclickHandler={deleteIconClicked(2)}
+				onClickHandler={deleteIconClicked(2)}
 			/>
 		),
 	},
@@ -111,13 +111,13 @@ const tags: Tag[] = [
 		editIcon: (
 			<IconButton
 				iconType='edit'
-				onclickHandler={editIconClicked(3)}
+				onClickHandler={editIconClicked(3)}
 			/>
 		),
 		deleteIcon: (
 			<IconButton
 				iconType='delete'
-				onclickHandler={deleteIconClicked(3)}
+				onClickHandler={deleteIconClicked(3)}
 			/>
 		),
 	},
@@ -129,13 +129,13 @@ const tags: Tag[] = [
 		editIcon: (
 			<IconButton
 				iconType='edit'
-				onclickHandler={editIconClicked(4)}
+				onClickHandler={editIconClicked(4)}
 			/>
 		),
 		deleteIcon: (
 			<IconButton
 				iconType='delete'
-				onclickHandler={deleteIconClicked(4)}
+				onClickHandler={deleteIconClicked(4)}
 			/>
 		),
 	},
@@ -148,13 +148,13 @@ const tags: Tag[] = [
 		editIcon: (
 			<IconButton
 				iconType='edit'
-				onclickHandler={editIconClicked(5)}
+				onClickHandler={editIconClicked(5)}
 			/>
 		),
 		deleteIcon: (
 			<IconButton
 				iconType='delete'
-				onclickHandler={deleteIconClicked(5)}
+				onClickHandler={deleteIconClicked(5)}
 			/>
 		),
 	},
