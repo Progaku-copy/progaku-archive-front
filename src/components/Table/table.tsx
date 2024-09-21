@@ -1,5 +1,7 @@
 import Text from '../Text';
 
+
+
 /**
  * Column<T>はテーブルの各カラムを定義します。
  *
@@ -31,7 +33,14 @@ type Props<T> = {
 	data: T[];
 };
 
+/**
+ * テーブルコンポーネント
+ * @param columns, Column<T>
+ * @param data, TableBodyに格納するデータ
+ * @returns Table Component
+ */
 const Table = <T,>({ columns, data }: Props<T>) => {
+	const primaryKeyColumns = columns.filter((column) => column.isPrimaryKey);
 	const totalSize = columns.reduce((sum, column) => sum + column.sizeRatio, 0);
 	return (
 		<div className='flex justify-center'>
@@ -58,7 +67,13 @@ const Table = <T,>({ columns, data }: Props<T>) => {
 					<tbody>
 						{data.map((row, rowIndex) => (
 							<tr
-								key={rowIndex}
+								key={
+									primaryKeyColumns.length > 0
+										? primaryKeyColumns
+												.map((column) => column.accessor(row))
+												.join('-')
+										: rowIndex
+								}
 								className='border-4 border-white'
 							>
 								{columns.map((column, colIndex) => (
