@@ -2,11 +2,9 @@
 
 import Text from '../Text';
 
-type ICON_TYPE = 'edit' | 'delete';
-
 type Props = {
 	label?: string;
-	iconType: ICON_TYPE;
+	iconType: 'edit' | 'delete';
 	onclickHandler: (...args: unknown[]) => unknown;
 };
 
