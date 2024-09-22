@@ -1,4 +1,4 @@
-export async function loginUser() {
+export async function logoutUser() {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/logout`, {
 		method: 'DELETE',
 		headers: {
@@ -9,7 +9,7 @@ export async function loginUser() {
 
 	if (response.status === 500) {
 		// TODO: アラート出す
-		throw new Error('Failed to login');
+		throw new Error('Failed to logout');
 	}
 
 	return response;

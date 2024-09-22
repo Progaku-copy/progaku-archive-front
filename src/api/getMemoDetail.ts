@@ -1,5 +1,5 @@
 export async function getMemoDetail(id: number) {
-	const response = await fetch(`${process.env.API}/memos/${id}`, {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos/${id}`, {
 		method: 'GET',
 		credentials: 'include',
 	});

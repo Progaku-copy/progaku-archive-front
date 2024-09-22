@@ -3,7 +3,7 @@ export async function createUser(
 	password: string,
 	passwordConfirmation: string,
 ) {
-	const response = await fetch(`${process.env.API}/admin/users`, {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/admin/users`, {
 		method: 'POST',
 		body: JSON.stringify({
 			account_name: name,

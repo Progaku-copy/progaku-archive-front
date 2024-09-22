@@ -1,5 +1,5 @@
 export async function updateTag(tagName: string, id: number) {
-	const response = await fetch(`${process.env.API}/tags/${id}`, {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/tags/${id}`, {
 		method: 'PUT',
 		body: JSON.stringify({
 			name: tagName,
