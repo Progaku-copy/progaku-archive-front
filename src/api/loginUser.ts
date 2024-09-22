@@ -18,5 +18,7 @@ export async function loginUser(username: string, password: string) {
 		throw new Error('Failed to login');
 	}
 
+	// TODO: 異常時に返ってくるメッセージをフォームに表示
+
 	return response;
 }
