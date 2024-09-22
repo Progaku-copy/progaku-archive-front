@@ -1,4 +1,4 @@
-export async function getMemoList() {
+export async function getMemos() {
 	const response = await fetch(`${process.env.API}/memos`, {
 		method: 'GET',
 		credentials: 'include',
@@ -6,7 +6,7 @@ export async function getMemoList() {
 
 	if (response.status === 500) {
 		// TODO: アラート出す
-		throw new Error('Failed to getMemoList');
+		throw new Error('Failed to getMemos');
 	}
 
 	return response;
