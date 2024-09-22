@@ -14,5 +14,6 @@ export const Default: Story = {
 	args: {
 		label: 'Button',
 		color: 'blue',
+		handleClickButton: () => console.log('click'),
 	},
 };

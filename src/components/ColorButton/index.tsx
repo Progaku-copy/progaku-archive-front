@@ -9,13 +9,14 @@ const BACKGROUND_COLORS = {
 type Props = {
 	color: keyof typeof BACKGROUND_COLORS;
 	label: string;
+	handleClickButton: () => void;
 };
 
-const ColorButton = ({ color, label }: Props) => {
+const ColorButton = ({ color, label, handleClickButton }: Props) => {
 	return (
 		<button
 			className={`${BACKGROUND_COLORS[color]} w-28 rounded py-3 transition hover:opacity-75`}
-			onClick={() => console.log('click button')}
+			onClick={handleClickButton}
 		>
 			<Text color='white'>{label}</Text>
 		</button>
