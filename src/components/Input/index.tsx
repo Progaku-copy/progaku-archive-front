@@ -1,15 +1,15 @@
 'use client';
 
-import { useState } from 'react';
 import Text from '../Text';
 
 type Props = {
 	placeholder: string;
 	label?: string;
+	setInputValue: (value: string) => void;
+	inputValue: string;
 };
 
-const Input = ({ placeholder, label = '' }: Props) => {
-	const [value, setValue] = useState('');
+const Input = ({ placeholder, label = '', setInputValue, inputValue }: Props) => {
 
 	return (
 		<div>
@@ -18,8 +18,8 @@ const Input = ({ placeholder, label = '' }: Props) => {
 				<input
 					className='h-11 w-full rounded-lg border-2 border-light-gray px-2'
 					placeholder={placeholder}
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
+					value={inputValue}
+					onChange={(e) => setInputValue(e.target.value)}
 				></input>
 			</div>
 		</div>

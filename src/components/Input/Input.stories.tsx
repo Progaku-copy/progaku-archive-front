@@ -14,5 +14,7 @@ export const Default: Story = {
 	args: {
 		placeholder: 'タイトル',
 		label: 'サンプル',
+		setInputValue: () => console.log('click'),
+		inputValue: '入力値',
 	},
 };
