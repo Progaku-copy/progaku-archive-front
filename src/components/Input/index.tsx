@@ -10,7 +10,6 @@ type Props = {
 };
 
 const Input = ({ placeholder, label = '', setInputValue, inputValue }: Props) => {
-
 	return (
 		<div>
 			{!!label ?? <Text>{label}</Text>}
