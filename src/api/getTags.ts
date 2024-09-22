@@ -1,5 +1,5 @@
 export async function getTags(id: number) {
-	const response = await fetch(`${process.env.API}/tags`, {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/tags`, {
 		method: 'GET',
 		credentials: 'include',
 	});

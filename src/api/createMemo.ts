@@ -1,12 +1,12 @@
 export async function createMemo(title:string, content:string, poster:string) {
-	const response = await fetch(`${process.env.API}/memos`, {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos`, {
 		method: 'POST',
 		body: JSON.stringify({
 			title,
 			content,
-			poster
+			poster,
 		}),
-		credentials:'include'
+		credentials: 'include',
 	});
 
 	return response;
