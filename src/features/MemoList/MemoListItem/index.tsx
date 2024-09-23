@@ -24,7 +24,7 @@ const MemoListItem = ({ userName, createdDate, memoTitle, tags = [] }: Props) =>
 			<Text fontSize='l'>{userName}</Text>
 			<Text fontSize='s'>{createdDate}</Text>
 			<Title isBold>{memoTitle}</Title>
-			<div className='flex space-x-2'>
+			<div className='flex flex-wrap'>
 				{sortedTags.map((tag) => {
 					return <Tag key={tag.id}>{tag.name}</Tag>;
 				})}
