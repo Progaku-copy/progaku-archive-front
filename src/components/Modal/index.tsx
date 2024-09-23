@@ -5,7 +5,6 @@ import { useState } from 'react';
 import ColorButton from '../ColorButton';
 
 type Props = {
-	isOpen: boolean;
 	onClose: () => void;
 	mode: 'edit' | 'create';
 };
