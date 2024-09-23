@@ -12,12 +12,12 @@ type Props = {
 	userName: string;
 	createdDate: string;
 	memoTitle: string;
-	tags?: Tag[];
+	tags: Tag[] | undefined;
 };
 
 const MemoListItem = ({ userName, createdDate, memoTitle, tags = [] }: Props) => {
 	const sortedTags = [...tags].sort((a, b) => {
-		return a.priority === b.priority ? b.id - a.id : b.priority - a.priority;
+		return b.priority - a.priority;
 	});
 	return (
 		<div className='flex flex-col justify-center gap-2 rounded-lg bg-gray-100 p-3'>
@@ -26,7 +26,11 @@ const MemoListItem = ({ userName, createdDate, memoTitle, tags = [] }: Props) =>
 			<Title isBold>{memoTitle}</Title>
 			<div className='flex flex-wrap'>
 				{sortedTags.map((tag) => {
-					return <Tag key={tag.id}>{tag.name}</Tag>;
+					return (
+						<div className='mb-1 mr-1'>
+							<Tag key={tag.id}>{tag.name}</Tag>
+						</div>
+					);
 				})}
 			</div>
 		</div>
