@@ -16,7 +16,6 @@ export const Default: Story = {
 	args: {
 		label: '編集',
 		size: 'm',
-		iconJustified: 'center',
 		iconType: 'delete',
 		onClickHandler: () => {
 			console.log('click');
