@@ -4,7 +4,7 @@ type Props = {
 
 const Tag = ({ children }: Props) => {
 	return (
-		<span className='font-noto rounded-full bg-gray-200 px-2 py-1 text-black'>
+		<span className='font-noto py-0.3 rounded-full bg-gray-200 px-2.5 text-sm text-black'>
 			{children}
 		</span>
 	);
