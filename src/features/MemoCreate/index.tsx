@@ -1,10 +1,12 @@
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
 import TextArea from '@/components/TextArea';
+import Title from '@/components/Title';
 
 export function MemoCreate() {
 	return (
 		<div className='flex h-screen flex-col justify-center gap-8 px-48'>
+			<Title>メモの作成</Title>
 			<Input placeholder='タイトル' />
 			<Input placeholder='タグ' />
 			<TextArea placeholder='本文' />
