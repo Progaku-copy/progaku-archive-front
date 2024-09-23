@@ -15,10 +15,6 @@ module.exports = {
 			fontSize: {
 				'2.5xl': '1.75rem',
 			},
-			maxWidth: {
-				'tag-table-name': '100px',
-				'tag-table-icon': '20px',
-			},
 		},
 	},
 	plugins: [
