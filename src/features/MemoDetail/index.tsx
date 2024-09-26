@@ -2,6 +2,7 @@ import Text from '@/components/Text';
 import Title from '@/components/Title';
 import Tag from '@/components/Tag';
 import DateLabel from '@/components/DateLabel';
+import IconButton from '@/components/IconButton';
 
 type Tag = {
 	id: number;
@@ -36,9 +37,34 @@ export function MemoDetail({ memo, tags }: Props) {
 	const sortedTags = [...tags].sort((a, b) => {
 		return b.priority - a.priority;
 	});
+
+	const onClickEditButton = (id: number): any => {
+		console.log('edit id', { id });
+	};
+	const onClickDeleteButton = (id: number): any => {
+		console.log('delete id', { id });
+	};
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
-			<Text>{memo.poster}</Text>
+			<div className='flex'>
+				<div className='mr-auto'>
+					<Text>{memo.poster}</Text>
+				</div>
+				<div className='flex'>
+					<IconButton
+						label='編集'
+						size='s'
+						iconType='edit'
+						onClickHandler={onClickEditButton(memo.id)}
+					></IconButton>
+					<IconButton
+						label='削除'
+						size='s'
+						iconType='delete'
+						onClickHandler={onClickDeleteButton(memo.id)}
+					></IconButton>
+				</div>
+			</div>
 			<Title
 				fontSize='l'
 				isBold
