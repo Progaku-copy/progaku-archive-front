@@ -12,39 +12,34 @@ const ICON_BUTTON_SIZES = {
 	s: 'h-5 w-5',
 } as const;
 
-const ICON_JUSTIFIED = {
-	top: 'items-start',
-	center: 'items-center',
+const ICON_TYPE = {
+	edit: 'i-ic-edit',
+	delete: 'i-ic-delete',
 } as const;
 
 type Props = {
 	label?: string;
 	size?: keyof typeof ICON_SIZES;
-	iconJustified?: keyof typeof ICON_JUSTIFIED;
-	iconType: 'edit' | 'delete';
+	iconType: keyof typeof ICON_TYPE;
 	onClickHandler: (...args: unknown[]) => unknown;
 };
 
-const IconButton = ({
-	label = undefined,
-	size = 's',
-	iconJustified = 'center',
-	iconType,
-	onClickHandler,
-}: Props) => {
+const IconButton = ({ label, size = 's', iconType, onClickHandler }: Props) => {
+	const buttonSizeClass = label ? 'w-20 h-15' : `${ICON_BUTTON_SIZES[size]} h-15`;
+	const iconClass = `${ICON_TYPE[iconType]} ${ICON_SIZES[size]} ${label ? 'm-0.5 p-2' : ICON_BUTTON_SIZES[size]}`;
+
 	return (
-		<div className={`h-15 ${label === undefined ? ICON_BUTTON_SIZES[size] : 'w-20'}`}>
+		<div className={buttonSizeClass}>
 			<button
 				onClick={onClickHandler}
-				className={`flex ${ICON_JUSTIFIED[iconJustified]}`}
+				className={`flex items-center`}
 			>
-				<span
-					className={`i-ic-${iconType} ${label === undefined ? ICON_BUTTON_SIZES[size] : 'm-0.5 p-2'} ${ICON_SIZES[size]}`}
-				></span>
+				<span className={iconClass}></span>
 				{label && <Text fontSize='m'>{label}</Text>}
 			</button>
 		</div>
 	);
 };
+
 
 export default IconButton;
