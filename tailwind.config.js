@@ -20,5 +20,27 @@ module.exports = {
 		iconsPlugin({
 			collections: getIconCollections(['ic']),
 		}),
+		function ({ addUtilities }) {
+			const newUtilities = {
+				'.scrollbar-thin': {
+					'::-webkit-scrollbar': {
+						width: '4px',
+						height: '4px',
+					},
+					'::-webkit-scrollbar-thumb': {
+						backgroundColor: '#888',
+						borderRadius: '4px',
+					},
+					'::-webkit-scrollbar-track': {
+						background: 'transparent',
+					},
+				},
+				'.scrollbar-thin': {
+					scrollbarWidth: 'thin',
+					scrollbarColor: '#888 transparent',
+				},
+			};
+			addUtilities(newUtilities, ['responsive', 'hover']);
+		},
 	],
 };
