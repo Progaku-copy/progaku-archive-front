@@ -15,7 +15,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
 		label: '編集',
-		size: 'm',
 		iconType: 'delete',
 		onClickHandler: () => {
 			console.log('click');
