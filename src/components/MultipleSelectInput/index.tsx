@@ -47,10 +47,6 @@ const MultipleSelectInput = <T extends OptionType>({
 				? chips.filter((option) => option.id !== item.id)
 				: [...chips, item],
 		);
-		setInputValue('');
-		if (inputValue !== '') {
-			setIsOpenMenu(false);
-		}
 	};
 
 	const handleMouseDown = (event: React.MouseEvent) => {
@@ -71,10 +67,10 @@ const MultipleSelectInput = <T extends OptionType>({
 	};
 
 	const handleBlurInput = () => {
-		setTimeout(() => {
-			setIsOpenMenu(false);
-			setIsFocus(false);
-		}, 100);
+		setInputValue('');
+		setIsOpenMenu(false);
+		setIsFocus(false);
+		// }, 100);
 	};
 
 	const filteredOptions = selectOptions.filter((option) =>
