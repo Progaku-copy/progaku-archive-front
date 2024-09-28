@@ -60,7 +60,6 @@ const MultipleSelectInput = <T extends OptionType>({
 
 	const handleClickForm = (event: React.MouseEvent) => {
 		console.log(inputRef);
-		// event.preventDefault();
 		setIsOpenMenu(true);
 		setIsFocus(true);
 		inputRef.current?.focus();
