@@ -70,7 +70,6 @@ const MultipleSelectInput = <T extends OptionType>({
 		setInputValue('');
 		setIsOpenMenu(false);
 		setIsFocus(false);
-		// }, 100);
 	};
 
 	const filteredOptions = selectOptions.filter((option) =>
