@@ -1,3 +1,5 @@
+'use client';
+
 import IconButton from '.';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -14,7 +16,7 @@ export const Default: Story = {
 	args: {
 		label: '編集',
 		iconType: 'delete',
-		onclickHandler: () => {
+		onClickHandler: () => {
 			console.log('click');
 		},
 	},
