@@ -1,6 +1,6 @@
 import Input from '@/components/Input';
 import Title from '@/components/Title';
-import ColorButton from '../ColorButton';
+import ColorButton from '@/components/ColorButton';
 import { useState } from 'react';
 
 type Props = {
