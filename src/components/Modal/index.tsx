@@ -15,8 +15,8 @@ const Modal = ({ onClose, mode }: Props) => {
 	};
 
 	return (
-		<div className='z-10 mx-auto max-w-4xl flex-col rounded-full'>
-			<div className='px-38 m-10 space-y-5 rounded-lg border border-gray-400 p-10'>
+		<div className='z-10 mx-auto max-w-4xl flex-col rounded-2xl border border-gray-400 py-10'>
+			<div className='m-1 space-y-12 rounded-lg px-40 py-20 pl-10 pr-10 pt-20'>
 				<div className='flex justify-between'>
 					<Title
 						fontSize='l'
