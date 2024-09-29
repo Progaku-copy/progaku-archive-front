@@ -16,7 +16,7 @@ const DUMMY_TAGS: Tag[] = [
 	},
 	{
 		id: 2,
-		name: 'タグ2',
+		name: 'タグ２',
 		priority: 2,
 	},
 	{

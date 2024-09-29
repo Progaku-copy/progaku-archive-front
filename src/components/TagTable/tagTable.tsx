@@ -1,5 +1,5 @@
-import Text from '../Text';
-import IconButton from '../IconButton/index';
+import Text from '@/components/Text';
+import IconButton from '@/components/IconButton';
 
 type Tag = {
 	id: number;
