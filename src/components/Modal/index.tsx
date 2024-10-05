@@ -1,21 +1,18 @@
 import Input from '@/components/Input';
 import Title from '@/components/Title';
 import ColorButton from '@/components/ColorButton';
-import { useState } from 'react';
 
 type Props = {
 	onClose: () => void;
+	onClickSubmitButton: (...args: any[]) => any;
+	tagName: string;
+	setTagName: (value: string) => void;
 	mode: 'edit' | 'create';
 };
 
-const Modal = ({ onClose, mode }: Props) => {
-	const [name, setName] = useState('');
-	const onClickSubmitButton = () => {
-		console.log('submit');
-	};
-
+const Modal = ({ onClose, onClickSubmitButton, tagName, setTagName, mode }: Props) => {
 	return (
-		<div className='z-10 mx-auto max-w-4xl flex-col rounded-2xl border border-gray-400 py-10'>
+		<div className='mx-auto max-w-4xl flex-col rounded-2xl border border-gray-400 bg-white py-10'>
 			<div className='m-1 space-y-12 rounded-lg px-40 py-20 pl-10 pr-10 pt-20'>
 				<div className='flex justify-between'>
 					<Title
@@ -31,8 +28,8 @@ const Modal = ({ onClose, mode }: Props) => {
 				</div>
 				<Input
 					placeholder='タグ名'
-					setInputValue={setName}
-					inputValue={name}
+					setInputValue={setTagName}
+					inputValue={tagName}
 				/>
 				<div className='flex justify-end'>
 					<ColorButton
