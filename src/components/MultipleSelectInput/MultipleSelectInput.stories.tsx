@@ -49,7 +49,7 @@ const MultipleSelectInputWithState = (args: Story['args']) => {
 	const [selectedChips, setSelectedChips] = useState(args.selectedChips);
 
 	return (
-		<MultipleSelectInputWithState
+		<MultipleSelectInput
 			{...args}
 			selectedChips={selectedChips}
 			setSelectedChips={setSelectedChips}
