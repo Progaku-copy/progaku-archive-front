@@ -39,8 +39,6 @@ module.exports = {
 					'::-webkit-scrollbar-track': {
 						background: 'transparent',
 					},
-				},
-				'.scrollbar-thin': {
 					scrollbarWidth: 'thin',
 					scrollbarColor: '#888 transparent',
 				},
