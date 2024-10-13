@@ -1,4 +1,6 @@
-export async function getTags(id: number) {
+import { Tag } from '@/Types';
+
+export async function getTags() {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/tags`, {
 		method: 'GET',
 		credentials: 'include',
@@ -8,6 +10,6 @@ export async function getTags(id: number) {
 		// TODO: アラート出す
 		throw new Error('Failed to getTags');
 	}
-
-	return response;
+	const data: Tag[] = await response.json();
+	return data;
 }

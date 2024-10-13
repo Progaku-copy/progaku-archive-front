@@ -6,6 +6,8 @@
 	},
 	"extends": [
 		"plugin:@next/next/recommended",
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
 		"prettier",
 		"plugin:storybook/recommended",
 		"plugin:tailwindcss/recommended"
@@ -15,14 +17,20 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["@typescript-eslint", "react", "import", "react-hooks", "tailwindcss"],
+	"plugins": [
+		"@typescript-eslint",
+		"react",
+		"import",
+		"react-hooks",
+		"tailwindcss",
+		"prettier"
+	],
 	"rules": {
 		"react-hooks/exhaustive-deps": "error",
 		"react-hooks/rules-of-hooks": "error",
 		"react/react-in-jsx-scope": "off",
 		"react/prop-types": "off",
 		"no-undef": "off",
-		"indent": ["error", "tab"],
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],

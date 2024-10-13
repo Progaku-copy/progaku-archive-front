@@ -1,19 +1,22 @@
-import Text from '@/components/Text';
-import IconButton from '@/components/IconButton';
+import IconButton from '../IconButton/index';
+import Text from '../Text';
 
-type Tag = {
-	id: number;
-	name: string;
-	priority: number;
-};
+import { Tag } from '@/Types';
 
 type Props = {
-	tags?: Tag[];
+	tags: Tag[];
 	editOnClickIcon: (id: number) => void;
 	deleteOnClickIcon: (id: number) => void;
 };
 
-const TagTable = ({ tags, editOnClickIcon, deleteOnClickIcon }: Props) => {
+const TagTable = ({ tags }: Props) => {
+	const editOnClickIcon = (id: number): any => {
+		console.log(`edit: ${id}`);
+	};
+	const deleteOnClickIcon = (id: number): any => {
+		console.log(`delete: ${id}`);
+	};
+
 	return (
 		<div className='flex justify-center'>
 			<div className='space-y-2'>

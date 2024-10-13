@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
+
 import Text from '../Text';
 
 type OptionType = {
@@ -12,14 +13,17 @@ type Props<T> = {
 	placeholder: string;
 	label: string;
 	selectOptions: T[];
+	selectedChips: T[];
+	setSelectedChips: (value: T[]) => void;
 };
 
 const MultipleSelectInput = <T extends OptionType>({
 	placeholder,
 	label,
 	selectOptions,
+	selectedChips,
+	setSelectedChips,
 }: Props<T>) => {
-	const [chips, setChips] = useState<OptionType[]>([]);
 	const [inputValue, setInputValue] = useState('');
 	const [isOpenMenu, setIsOpenMenu] = useState(false);
 	const [isFocus, setIsFocus] = useState(false);
@@ -31,7 +35,7 @@ const MultipleSelectInput = <T extends OptionType>({
 		chipToDelete: OptionType,
 	) => {
 		event.stopPropagation();
-		setChips(chips?.filter((chip) => chip !== chipToDelete));
+		setSelectedChips(selectedChips?.filter((chip) => chip !== chipToDelete));
 	};
 
 	const handleChangeInputValue = (value: string) => {
@@ -41,11 +45,11 @@ const MultipleSelectInput = <T extends OptionType>({
 		setInputValue(value);
 	};
 
-	const handleClickMenuItem = (item: OptionType) => {
-		setChips(
-			chips.some((option) => option.id === item.id)
-				? chips.filter((option) => option.id !== item.id)
-				: [...chips, item],
+	const handleClickMenuItem = (item: T) => {
+		setSelectedChips(
+			selectedChips.some((option) => option.id === item.id)
+				? selectedChips.filter((option) => option.id !== item.id)
+				: [...selectedChips, item],
 		);
 	};
 
@@ -58,8 +62,7 @@ const MultipleSelectInput = <T extends OptionType>({
 		setIsFocus(true);
 	};
 
-	const handleClickForm = (event: React.MouseEvent) => {
-		console.log(inputRef);
+	const handleClickForm = () => {
 		setIsOpenMenu(true);
 		setIsFocus(true);
 		inputRef.current?.focus();
@@ -80,21 +83,21 @@ const MultipleSelectInput = <T extends OptionType>({
 			{!!label && <Text>{label}</Text>}
 			<div
 				onClick={handleClickForm}
-				className='inline-flex h-11 w-full max-w-full flex-nowrap items-center overflow-hidden rounded-lg border-2 border-light-gray pl-2 pr-2'
+				className='inline-flex h-11 w-full max-w-full flex-nowrap items-center overflow-hidden rounded-lg border-2 border-light-gray px-2'
 			>
-				{!isFocus && chips.length > 0 && (
+				{!isFocus && selectedChips.length > 0 && (
 					<div className='flex flex-nowrap gap-2 overflow-x-auto scrollbar-thin'>
-						{chips.map((option) => (
+						{selectedChips.map((option) => (
 							<div
 								key={option.id}
 								className='inline-flex flex-nowrap items-center rounded-full bg-gray-200 px-3 py-0.5'
 							>
-								<div className='max-w-[150px] overflow-hidden text-ellipsis whitespace-nowrap'>
+								<div className='max-w-[150px] truncate'>
 									<Text>{option.name}</Text>
 								</div>
 								<button
 									onClick={(e) => handleClickDeleteButton(e, option)}
-									className='h-4 w-4 cursor-pointer rounded-full bg-gray-400 text-white transition hover:opacity-75'
+									className='size-4 cursor-pointer rounded-full bg-gray-400 text-white transition hover:opacity-75'
 								>
 									<span className='i-ic-baseline-close mb-0.5' />
 								</button>
@@ -102,19 +105,19 @@ const MultipleSelectInput = <T extends OptionType>({
 						))}
 					</div>
 				)}
-				<div className='flex-grow'>
+				<div className='grow'>
 					<input
 						ref={inputRef}
 						type='text'
 						value={inputValue}
 						onChange={(e) => handleChangeInputValue(e.target.value)}
-						placeholder={chips.length > 0 ? undefined : placeholder}
+						placeholder={selectedChips.length > 0 ? undefined : placeholder}
 						className='relative w-full min-w-[20px] border-none p-1 outline-none'
 						onFocus={handleFocusInput}
 						onBlur={handleBlurInput}
 					/>
 					<span
-						className={`${isOpenMenu ? 'i-ic-baseline-arrow-drop-up' : 'i-ic-baseline-arrow-drop-down'} absolute right-6 h-8 w-8 text-black`}
+						className={`${isOpenMenu ? 'i-ic-baseline-arrow-drop-up' : 'i-ic-baseline-arrow-drop-down'} absolute right-6 size-8 text-black`}
 					></span>
 				</div>
 			</div>
@@ -127,7 +130,7 @@ const MultipleSelectInput = <T extends OptionType>({
 								onClick={() => handleClickMenuItem(option)}
 								onMouseDown={handleMouseDown}
 								className={`cursor-pointer border-gray-200 p-2 transition hover:opacity-75 ${
-									chips.some((chip) => chip.id === option.id)
+									selectedChips.some((chip) => chip.id === option.id)
 										? 'bg-gray-200'
 										: ''
 								}`}
