@@ -41,5 +41,4 @@ const IconButton = ({ label, size = 's', iconType, onClickHandler }: Props) => {
 	);
 };
 
-
 export default IconButton;

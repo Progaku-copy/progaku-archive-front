@@ -1,16 +1,9 @@
-import Text from '../Text';
 import { useDateTime } from '../../hooks/useDateTime';
-
-const FONT_SIZES = {
-	l: 'text-xl',
-	m: 'text-base',
-	s: 'text-xs',
-} as const;
+import Text, { FONT_SIZES } from '../Text';
 
 type Props = {
 	utcDateTimeString: string;
 	label?: string;
-	containSecond?: boolean;
 	fontSize?: keyof typeof FONT_SIZES;
 	color?: string;
 };
@@ -18,15 +11,10 @@ type Props = {
 const DateLabel = ({
 	utcDateTimeString,
 	label,
-	containSecond,
 	fontSize = 'm',
 	color = 'black',
 }: Props) => {
-
-	const utcDate = new Date(utcDateTimeString);
-	if (isNaN(utcDate.getTime())) {
-		return;
-	}
+	const { dateWithSecond } = useDateTime(utcDateTimeString);
 
 	return (
 		<div>
@@ -42,7 +30,7 @@ const DateLabel = ({
 				fontSize={fontSize}
 				color={color}
 			>
-				{useDateTime(utcDateTimeString, containSecond)!}
+				{dateWithSecond}
 			</Text>
 		</div>
 	);

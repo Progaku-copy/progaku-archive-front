@@ -20,11 +20,11 @@ const Alert = ({ children, handleClickButton, alertType }: Props) => {
 	};
 
 	return (
-		<div className='z-5 fixed inset-0 flex items-center justify-center'>
+		<div className='fixed inset-0 z-10 flex items-center justify-center'>
 			<div className='absolute inset-0 bg-gray-700 opacity-50'></div>
-			<div className='relative z-10 flex w-auto flex-col items-center justify-center gap-5 rounded-lg bg-white px-10 py-5'>
+			<div className='relative z-10 flex w-auto min-w-[400px] flex-col items-center justify-center gap-5 rounded-lg bg-white px-10 py-5'>
 				<div>
-					<span className={`${getIcon()} h-32 w-32`} />
+					<span className={`${getIcon()} size-32`} />
 				</div>
 				<div className='flex flex-col items-center'>
 					{children.split('\n').map((line, index) => (
