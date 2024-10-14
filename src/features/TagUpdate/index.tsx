@@ -32,15 +32,15 @@ const TagUpdate = ({
 }: Props) => {
 	const [tagName, setTagName] = useState('');
 	const [tagId, setTagId] = useState<number | undefined>(undefined);
-	const [mode, setMode] = useState<'edit' | 'create' | undefined>(undefined);
+	const [mode, setMode] = useState<'edit' | 'create' | undefined>();
 	const createOnClickButton = () => {
-		setTagId(undefined);
 		setMode('create');
+		setTagId(undefined);
 	};
 	const editOnClickIcon = (id: number) => {
+		setMode('edit');
 		setTagId(id);
 		onClickEditIcon(id);
-		setMode('edit');
 	};
 	const deleteOnClickIcon = (id: number) => {
 		setTagId(id);

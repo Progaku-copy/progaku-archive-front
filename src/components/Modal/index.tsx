@@ -19,7 +19,11 @@ const Modal = ({ onClose, onClickSubmitButton, tagName, setTagName, mode }: Prop
 						fontSize='l'
 						isBold
 					>
-						{mode === 'edit' ? 'タグを編集' : 'タグを作成'}
+						{mode === 'edit'
+							? 'タグを編集'
+							: mode === 'create'
+								? 'タグを作成'
+								: ''}
 					</Title>
 					<button
 						className='i-ic-close px-3 py-3 text-gray-500 hover:opacity-75'
