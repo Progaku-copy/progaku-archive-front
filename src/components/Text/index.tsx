@@ -1,4 +1,4 @@
-const FONT_SIZES = {
+export const FONT_SIZES = {
 	l: 'text-xl',
 	m: 'text-base',
 	s: 'text-xs',

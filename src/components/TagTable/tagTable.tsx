@@ -1,21 +1,17 @@
-import Text from '@/components/Text';
-import IconButton from '@/components/IconButton';
+import IconButton from '../IconButton/index';
+import Text from '../Text';
 
-type Tag = {
-	id: number;
-	name: string;
-	priority: number;
-};
+import { Tag } from '@/Types';
 
 type Props = {
-	tags?: Tag[];
+	tags: Tag[];
 };
 
 const TagTable = ({ tags }: Props) => {
-	const editOnClickIcon = (id: number): any => {
+	const editOnClickIcon = (id: number) => {
 		console.log(`edit: ${id}`);
 	};
-	const deleteOnClickIcon = (id: number): any => {
+	const deleteOnClickIcon = (id: number) => {
 		console.log(`delete: ${id}`);
 	};
 
