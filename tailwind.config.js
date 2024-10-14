@@ -19,6 +19,9 @@ module.exports = {
 				'tag-table-name': '100px',
 				'tag-table-icon': '20px',
 			},
+			fontFamily: {
+				noto: ['"Noto Sans"', 'sans-serif'], // カスタムフォントを設定
+			},
 		},
 	},
 	plugins: [
