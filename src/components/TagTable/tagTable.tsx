@@ -9,19 +9,14 @@ type Tag = {
 
 type Props = {
 	tags?: Tag[];
+	editOnClickIcon: (id: number) => void;
+	deleteOnClickIcon: (id: number) => void;
 };
 
-const TagTable = ({ tags }: Props) => {
-	const editOnClickIcon = (id: number): any => {
-		console.log(`edit: ${id}`);
-	};
-	const deleteOnClickIcon = (id: number): any => {
-		console.log(`delete: ${id}`);
-	};
-
+const TagTable = ({ tags, editOnClickIcon, deleteOnClickIcon }: Props) => {
 	return (
 		<div className='flex justify-center'>
-			<div className='w-4/5 space-y-2'>
+			<div className='space-y-2'>
 				{tags &&
 					tags?.length > 0 &&
 					tags.map((tag) => (
