@@ -10,6 +10,7 @@ export async function createMemo(
 			title,
 			content,
 			poster,
+			tagIds,
 		}),
 		credentials: 'include',
 	});
