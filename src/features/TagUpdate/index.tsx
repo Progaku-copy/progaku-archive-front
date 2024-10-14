@@ -11,11 +11,17 @@ type Tag = {
 	priority: number;
 };
 
+type OptionalIdTag = {
+	id?: number;
+	name: string;
+	priority: number;
+};
+
 type Props = {
 	tags?: Tag[];
-	onClickEditIcon: (id: number) => any;
-	onClickDeleteIcon: (id: number) => any;
-	onClickSubmitButton: (tag: Tag) => any;
+	onClickEditIcon: (id: number) => void;
+	onClickDeleteIcon: (id: number) => void;
+	onClickSubmitButton: (tag: OptionalIdTag) => void;
 };
 
 const TagUpdate = ({
@@ -25,20 +31,29 @@ const TagUpdate = ({
 	onClickSubmitButton,
 }: Props) => {
 	const [tagName, setTagName] = useState('');
-	const [mode, setMode] = useState<'edit' | 'create' | 'list'>('list');
+	const [tagId, setTagId] = useState<number | undefined>(undefined);
+	const [mode, setMode] = useState<'edit' | 'create' | undefined>(undefined);
 	const createOnClickButton = () => {
+		setTagId(undefined);
 		setMode('create');
 	};
 	const editOnClickIcon = (id: number) => {
+		setTagId(id);
 		onClickEditIcon(id);
 		setMode('edit');
 	};
 	const deleteOnClickIcon = (id: number) => {
+		setTagId(id);
 		onClickDeleteIcon(id);
 	};
-	const submitOnClickButton = (tag: Tag) => {
+	const submitOnClickButton = () => {
+		const tag: OptionalIdTag = {
+			id: tagId,
+			name: tagName,
+			priority: 0,
+		};
 		onClickSubmitButton(tag);
-		setMode('list');
+		setMode(undefined);
 	};
 
 	return (
@@ -62,16 +77,16 @@ const TagUpdate = ({
 				</div>
 			</div>
 			<div
-				className={`${mode !== 'list' ? 'opacity-100' : 'pointer-events-none opacity-0'} fixed inset-10 z-10 items-center bg-white bg-opacity-50 opacity-100 transition-opacity duration-200`}
+				className={`${mode !== undefined ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} fixed inset-10 z-10 items-center bg-white bg-opacity-50 transition-opacity duration-200`}
 			>
 				<Modal
 					onClose={() => {
-						setMode('list');
+						setMode(undefined);
 					}}
 					onClickSubmitButton={submitOnClickButton}
 					tagName={tagName}
 					setTagName={setTagName}
-					mode={mode === 'list' ? 'create' : mode}
+					mode={mode}
 				></Modal>
 			</div>
 		</div>

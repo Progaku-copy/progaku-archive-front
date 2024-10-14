@@ -4,10 +4,10 @@ import ColorButton from '@/components/ColorButton';
 
 type Props = {
 	onClose: () => void;
-	onClickSubmitButton: (...args: any[]) => any;
+	onClickSubmitButton: () => void;
 	tagName: string;
 	setTagName: (value: string) => void;
-	mode: 'edit' | 'create';
+	mode: 'edit' | 'create' | undefined;
 };
 
 const Modal = ({ onClose, onClickSubmitButton, tagName, setTagName, mode }: Props) => {

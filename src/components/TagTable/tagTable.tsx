@@ -9,8 +9,8 @@ type Tag = {
 
 type Props = {
 	tags?: Tag[];
-	editOnClickIcon: (id: number) => unknown;
-	deleteOnClickIcon: (id: number) => unknown;
+	editOnClickIcon: (id: number) => void;
+	deleteOnClickIcon: (id: number) => void;
 };
 
 const TagTable = ({ tags, editOnClickIcon, deleteOnClickIcon }: Props) => {
