@@ -20,7 +20,7 @@ module.exports = {
 				'tag-table-icon': '20px',
 			},
 			fontFamily: {
-				noto: ['"Noto Sans"', 'sans-serif'], // カスタムフォントを設定
+				noto: ['"Noto Sans"', 'sans-serif'],
 			},
 		},
 	},

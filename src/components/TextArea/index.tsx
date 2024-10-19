@@ -7,7 +7,7 @@ type Props = {
 	setInputValue: (value: string) => void;
 };
 
-const TextArea: React.FC<Props> = ({ placeholder, inputValue, setInputValue }) => {
+const TextArea = ({ placeholder, inputValue, setInputValue }: Props) => {
 	const handleChange = (value: string) => {
 		setInputValue(value);
 	};
