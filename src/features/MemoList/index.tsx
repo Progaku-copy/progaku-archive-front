@@ -1,23 +1,16 @@
 import Input from '@/components/Input';
-import MemoListItem from './MemoListItem';
-import Pagination from './Pagination';
-import { Memo, Tag } from '@/Types';
+import MemoListItem from '@/features/MemoList/MemoListItem';
+import Pagination from '@/features/MemoList/Pagination';
+import { Memo } from '@/Types';
 
 type Props = {
 	memos: Memo[];
 	memoTotalPage: number;
-	tags: Tag[];
 	searchValue: string;
 	setSearchValue: (searchValue: string) => void;
 };
 
-export function MemoList({
-	memos,
-	memoTotalPage,
-	tags,
-	searchValue,
-	setSearchValue,
-}: Props) {
+export function MemoList({ memos, memoTotalPage, searchValue, setSearchValue }: Props) {
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
 			<div className='flex justify-end'>
@@ -37,7 +30,7 @@ export function MemoList({
 								userName={memo.poster}
 								createdDate={memo.created_at}
 								memoTitle={memo.title}
-								tags={tags}
+								tags={memo.tags}
 							></MemoListItem>
 						</div>
 					);
