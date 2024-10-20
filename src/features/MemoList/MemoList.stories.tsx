@@ -87,6 +87,7 @@ const DUMMY_DATA_MEMOS: Memo[] = [
 		created_at: '2024-09-05T10:12:14.000Z',
 		updated_at: '2024-12-15T10:12:14.000Z',
 		comments: [],
+		tags: DUMMY_DATA_TAGS,
 	},
 	{
 		id: 2,
@@ -97,6 +98,7 @@ const DUMMY_DATA_MEMOS: Memo[] = [
 		created_at: '2024-09-05T10:12:14.000Z',
 		updated_at: '2024-12-15T10:12:14.000Z',
 		comments: [],
+		tags: DUMMY_DATA_TAGS,
 	},
 ];
 
@@ -104,7 +106,6 @@ export const Default: Story = {
 	args: {
 		memos: DUMMY_DATA_MEMOS,
 		memoTotalPage: 1,
-		tags: DUMMY_DATA_TAGS,
 		searchValue: '',
 		setSearchValue: () => {},
 	},
