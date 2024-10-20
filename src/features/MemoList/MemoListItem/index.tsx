@@ -1,25 +1,17 @@
+import { Tag as TagType } from '@/Types';
 import DateLabel from '@/components/DateLabel';
 import Tag from '@/components/Tag';
 import Text from '@/components/Text';
 import Title from '@/components/Title';
 
-type Tag = {
-	id: number;
-	name: string;
-	priority: number;
-};
-
 type Props = {
 	userName: string;
 	createdDate: string;
 	memoTitle: string;
-	tags: Tag[] | undefined;
+	tags: TagType[];
 };
 
-const MemoListItem = ({ userName, createdDate, memoTitle, tags = [] }: Props) => {
-	const sortedTags = [...tags].sort((a, b) => {
-		return b.priority - a.priority;
-	});
+const MemoListItem = ({ userName, createdDate, memoTitle, tags }: Props) => {
 	return (
 		<div className='flex flex-col justify-center gap-2 rounded-lg bg-gray-100 p-3'>
 			<Text fontSize='l'>{userName}</Text>
@@ -29,7 +21,7 @@ const MemoListItem = ({ userName, createdDate, memoTitle, tags = [] }: Props) =>
 			/>
 			<Title isBold>{memoTitle}</Title>
 			<div className='flex flex-wrap'>
-				{sortedTags.map((tag) => {
+				{tags.map((tag) => {
 					return (
 						<div className='mb-1 mr-1'>
 							<Tag key={tag.id}>{tag.name}</Tag>

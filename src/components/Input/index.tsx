@@ -12,7 +12,7 @@ type Props = {
 const Input = ({ placeholder, label = '', setInputValue, inputValue }: Props) => {
 	return (
 		<div>
-			{!!label ?? <Text>{label}</Text>}
+			{!!label && <Text>{label}</Text>}
 			<div>
 				<input
 					className='h-11 w-full rounded-lg border-2 border-light-gray px-2'

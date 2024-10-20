@@ -1,15 +1,15 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
 type Props = {
 	placeholder: string;
+	inputValue: string;
+	setInputValue: (value: string) => void;
 };
 
-const TextArea: React.FC<Props> = ({ placeholder }) => {
-	const [value, setValue] = useState('');
-
-	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-		setValue(e.target.value);
+const TextArea = ({ placeholder, inputValue, setInputValue }: Props) => {
+	const handleChange = (value: string) => {
+		setInputValue(value);
 	};
 
 	return (
@@ -17,8 +17,8 @@ const TextArea: React.FC<Props> = ({ placeholder }) => {
 			<textarea
 				className='h-[382px] w-full resize-none rounded-lg border-2 border-light-gray p-2'
 				placeholder={placeholder}
-				value={value}
-				onChange={handleChange}
+				value={inputValue}
+				onChange={(e) => handleChange(e.target.value)}
 			/>
 		</div>
 	);

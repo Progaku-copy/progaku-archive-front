@@ -32,7 +32,7 @@ const IconButton = ({ label, size = 's', iconType, onClickHandler }: Props) => {
 		<div className={buttonSizeClass}>
 			<button
 				onClick={onClickHandler}
-				className={`flex items-center`}
+				className={'flex items-center'}
 			>
 				<span className={iconClass}></span>
 				{label && <Text fontSize='m'>{label}</Text>}
@@ -40,6 +40,5 @@ const IconButton = ({ label, size = 's', iconType, onClickHandler }: Props) => {
 		</div>
 	);
 };
-
 
 export default IconButton;

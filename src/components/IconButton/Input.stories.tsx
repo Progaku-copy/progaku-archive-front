@@ -1,3 +1,5 @@
+'use client';
+
 import IconButton from '.';
 
 import type { Meta, StoryObj } from '@storybook/react';

@@ -14,7 +14,6 @@ export const Default: Story = {
 	args: {
 		utcDateTimeString: '2024-09-15T10:12:14.000Z',
 		label: '登録日時',
-		containSecond: false,
 		fontSize: 'm',
 		color: 'black',
 	},

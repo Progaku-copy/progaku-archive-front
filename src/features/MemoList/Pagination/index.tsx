@@ -1,7 +1,8 @@
 'use client';
 
-import Text from '@/components/Text';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+import Text from '@/components/Text';
 
 type Props = {
 	totalPageNumber: number;
@@ -91,13 +92,13 @@ const Pagination = ({ totalPageNumber }: Props) => {
 		<div className='flex items-center'>
 			<button
 				onClick={handleClickFirstPageButton}
-				className='transitions flex h-10 w-10 items-center justify-center hover:opacity-75'
+				className='flex size-10 items-center justify-center transition hover:opacity-75'
 			>
 				<span className='i-ic-sharp-skip-previous'></span>
 			</button>
 			<button
 				onClick={handleClickPreviousPageButton}
-				className='transitions flex h-10 w-10 items-center justify-center hover:opacity-75'
+				className='flex size-10 items-center justify-center transition hover:opacity-75'
 			>
 				<span className='i-ic-baseline-chevron-left'></span>
 			</button>
@@ -109,8 +110,8 @@ const Pagination = ({ totalPageNumber }: Props) => {
 						key={index}
 						className={
 							currentPage === page
-								? 'h-10 w-10 rounded-full bg-[#2196F3]'
-								: 'h-10 w-10 rounded-full transition hover:opacity-75'
+								? 'size-10 rounded-full bg-[#2196F3]'
+								: 'size-10 rounded-full transition hover:opacity-75'
 						}
 						onClick={() => handleClickPageNumber(page)}
 					>
@@ -122,13 +123,13 @@ const Pagination = ({ totalPageNumber }: Props) => {
 			)}
 			<button
 				onClick={handleClickNextPageButton}
-				className='transitions flex h-10 w-10 items-center justify-center hover:opacity-75'
+				className='flex size-10 items-center justify-center transition hover:opacity-75'
 			>
 				<span className='i-ic-baseline-chevron-right'></span>
 			</button>
 			<button
 				onClick={handleClickLastPageButton}
-				className='transitions flex h-10 w-10 items-center justify-center hover:opacity-75'
+				className='flex size-10 items-center justify-center transition hover:opacity-75'
 			>
 				<span className='i-ic-baseline-skip-next'></span>
 			</button>
