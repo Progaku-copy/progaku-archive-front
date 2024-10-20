@@ -1,43 +1,16 @@
+import { Memo, Tag as TagType } from '@/Types';
 import DateLabel from '@/components/DateLabel';
 import IconButton from '@/components/IconButton';
 import Tag from '@/components/Tag';
 import Text from '@/components/Text';
 import Title from '@/components/Title';
 
-type Tag = {
-	id: number;
-	name: string;
-	priority: number;
-};
-
-type Comment = {
-	id: number;
-	memo_id: number;
-	content: string;
-	created_at: string;
-	updated_at: string;
-};
-
-type Memo = {
-	id: number;
-	title: string;
-	content: string;
-	poster: string;
-	created_at: string;
-	updated_at: string;
-	comments: Comment[];
-};
-
 type Props = {
 	memo: Memo;
-	tags: Tag[];
+	tags: TagType[];
 };
 
 export function MemoDetail({ memo, tags }: Props) {
-	const sortedTags = [...tags].sort((a, b) => {
-		return b.priority - a.priority;
-	});
-
 	const onClickEditButton = (id: number) => {
 		console.log('edit id', { id });
 	};
@@ -72,7 +45,7 @@ export function MemoDetail({ memo, tags }: Props) {
 				{memo.title}
 			</Title>
 			<div className='flex flex-wrap'>
-				{sortedTags.map((tag) => {
+				{tags.map((tag) => {
 					return (
 						<div className='mb-1 mr-1'>
 							<Tag key={tag.id}>{tag.name}</Tag>
