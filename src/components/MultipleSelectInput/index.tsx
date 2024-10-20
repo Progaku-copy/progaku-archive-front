@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 
 import Text from '../Text';
 
@@ -35,7 +35,7 @@ const MultipleSelectInput = <T extends OptionType>({
 		chipToDelete: OptionType,
 	) => {
 		event.stopPropagation();
-		setSelectedChips(selectedChips?.filter((chip) => chip !== chipToDelete));
+		setSelectedChips(selectedChips.filter((chip) => chip !== chipToDelete));
 	};
 
 	const handleChangeInputValue = (value: string) => {
@@ -74,12 +74,13 @@ const MultipleSelectInput = <T extends OptionType>({
 		setIsFocus(false);
 	};
 
-	const filteredOptions = selectOptions.filter((option) =>
-		option.name.includes(inputValue),
-	);
+	const filteredOptions = useMemo(() => {
+		if (!Array.isArray(selectOptions)) return [];
+		return selectOptions.filter((option) => option.name.includes(inputValue));
+	}, [selectOptions, inputValue]);
 
 	return (
-		<>
+		<div>
 			{!!label && <Text>{label}</Text>}
 			<div
 				onClick={handleClickForm}
@@ -105,19 +106,19 @@ const MultipleSelectInput = <T extends OptionType>({
 						))}
 					</div>
 				)}
-				<div className='grow'>
+				<div className='relative grow'>
 					<input
 						ref={inputRef}
 						type='text'
 						value={inputValue}
 						onChange={(e) => handleChangeInputValue(e.target.value)}
-						placeholder={selectedChips.length > 0 ? undefined : placeholder}
+						placeholder={selectedChips.length > 0 ? '' : placeholder}
 						className='relative w-full min-w-[20px] border-none p-1 outline-none'
 						onFocus={handleFocusInput}
 						onBlur={handleBlurInput}
 					/>
 					<span
-						className={`${isOpenMenu ? 'i-ic-baseline-arrow-drop-up' : 'i-ic-baseline-arrow-drop-down'} absolute right-6 size-8 text-black`}
+						className={`${isOpenMenu ? 'i-ic-baseline-arrow-drop-up' : 'i-ic-baseline-arrow-drop-down'} absolute right-3 size-8 text-black`}
 					></span>
 				</div>
 			</div>
@@ -145,7 +146,7 @@ const MultipleSelectInput = <T extends OptionType>({
 					)}
 				</div>
 			)}
-		</>
+		</div>
 	);
 };
 

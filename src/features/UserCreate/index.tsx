@@ -1,8 +1,9 @@
 'use client';
+import { useState } from 'react';
+
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
 import Title from '@/components/Title';
-import { useState } from 'react';
 
 export function UserCreate() {
 	const [useName, setUserName] = useState('');

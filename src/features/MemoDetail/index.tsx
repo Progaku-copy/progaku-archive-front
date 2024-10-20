@@ -1,8 +1,8 @@
-import Text from '@/components/Text';
-import Title from '@/components/Title';
-import Tag from '@/components/Tag';
 import DateLabel from '@/components/DateLabel';
 import IconButton from '@/components/IconButton';
+import Tag from '@/components/Tag';
+import Text from '@/components/Text';
+import Title from '@/components/Title';
 
 type Tag = {
 	id: number;
@@ -38,10 +38,10 @@ export function MemoDetail({ memo, tags }: Props) {
 		return b.priority - a.priority;
 	});
 
-	const onClickEditButton = (id: number): any => {
+	const onClickEditButton = (id: number) => {
 		console.log('edit id', { id });
 	};
-	const onClickDeleteButton = (id: number): any => {
+	const onClickDeleteButton = (id: number) => {
 		console.log('delete id', { id });
 	};
 	return (
@@ -55,13 +55,13 @@ export function MemoDetail({ memo, tags }: Props) {
 						label='編集'
 						size='s'
 						iconType='edit'
-						onClickHandler={onClickEditButton(memo.id)}
+						onClickHandler={() => onClickEditButton(memo.id)}
 					></IconButton>
 					<IconButton
 						label='削除'
 						size='s'
 						iconType='delete'
-						onClickHandler={onClickDeleteButton(memo.id)}
+						onClickHandler={() => onClickDeleteButton(memo.id)}
 					></IconButton>
 				</div>
 			</div>

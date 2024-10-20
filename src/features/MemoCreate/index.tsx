@@ -1,13 +1,15 @@
 'use client';
+import { useState } from 'react';
+
+import { useRouter } from 'next/navigation';
+
+import { Tag } from '@/Types';
 import { createMemo } from '@/api/createMemo';
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
 import MultipleSelectInput from '@/components/MultipleSelectInput';
 import TextArea from '@/components/TextArea';
 import Title from '@/components/Title';
-import { Tag } from '@/Types';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 type Props = {
 	tags: Tag[];
@@ -24,7 +26,7 @@ export function MemoCreate({ tags }: Props) {
 	const handleClickSubmitButton = () => {
 		const tagIds = selectedTags.map((tag) => tag.id);
 		void createMemo(title, content, poster, tagIds);
-		router.push('memoList');
+		router.push('/memoList');
 	};
 
 	return (

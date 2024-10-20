@@ -1,10 +1,12 @@
 'use client';
+import { useState } from 'react';
+
+import { useRouter } from 'next/navigation';
+
 import { loginUser } from '@/api/loginUser';
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
 import Title from '@/components/Title';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 export function Login() {
 	const [userName, setUserName] = useState('');

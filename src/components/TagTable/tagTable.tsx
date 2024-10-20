@@ -10,10 +10,10 @@ type Props = {
 };
 
 const TagTable = ({ tags }: Props) => {
-	const editOnClickIcon = (id: number): any => {
+	const editOnClickIcon = (id: number) => {
 		console.log(`edit: ${id}`);
 	};
-	const deleteOnClickIcon = (id: number): any => {
+	const deleteOnClickIcon = (id: number) => {
 		console.log(`delete: ${id}`);
 	};
 

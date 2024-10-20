@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
 import Title from '@/components/Title';
