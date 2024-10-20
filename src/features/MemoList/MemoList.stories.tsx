@@ -1,6 +1,8 @@
-import { Memo, Tag } from '@/Types';
-import { MemoList } from '.';
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Memo, Tag } from '@/Types';
+
+import { MemoList } from '.';
 
 const meta = {
 	title: 'features/MemoList',
@@ -106,7 +108,11 @@ export const Default: Story = {
 	args: {
 		memos: DUMMY_DATA_MEMOS,
 		memoTotalPage: 1,
-		searchValue: '',
-		setSearchValue: () => {},
+		tags: DUMMY_DATA_TAGS,
+		searchMemoContent: '',
+		setSearchMemoContent: () => {},
+		selectedChips: [],
+		setSelectedChips: () => {},
+		searchButtonClicked: () => {},
 	},
 };
