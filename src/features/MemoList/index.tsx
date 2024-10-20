@@ -1,30 +1,7 @@
 import Input from '@/components/Input';
 import MemoListItem from './MemoListItem';
 import Pagination from './Pagination';
-
-type Tag = {
-	id: number;
-	name: string;
-	priority: number;
-};
-
-type Comment = {
-	id: number;
-	memo_id: number;
-	content: string;
-	created_at: string;
-	updated_at: string;
-};
-
-type Memo = {
-	id: number;
-	title: string;
-	content: string;
-	poster: string;
-	created_at: string;
-	updated_at: string;
-	comments: Comment[];
-};
+import { Memo, Tag } from '@/Types';
 
 type Props = {
 	memos: Memo[];
