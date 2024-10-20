@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import MultipleSelectInput from '.';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -43,10 +45,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const MultipleSelectInputWithState = (args: Story['args']) => {
+	const [selectedChips, setSelectedChips] = useState(args.selectedChips);
+
+	return (
+		<MultipleSelectInput
+			{...args}
+			selectedChips={selectedChips}
+			setSelectedChips={setSelectedChips}
+			selectOptions={DUMMY_DATA}
+		/>
+	);
+};
+
 export const Default: Story = {
+	render: (args) => <MultipleSelectInputWithState {...args} />,
+
 	args: {
 		label: 'ラベル',
 		placeholder: '入力してください',
 		selectOptions: DUMMY_DATA,
+		selectedChips: [],
+		setSelectedChips: () => {},
 	},
 };

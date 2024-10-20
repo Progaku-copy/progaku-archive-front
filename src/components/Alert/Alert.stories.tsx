@@ -14,6 +14,6 @@ export const Default: Story = {
 	args: {
 		children: 'サンプル\nサンプル',
 		handleClickButton: () => console.log('click'),
-		alertType: 'error'
+		alertType: 'error',
 	},
 };

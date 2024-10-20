@@ -1,3 +1,7 @@
-export default function MemoCreate() {
-	return <h1>メモ作成ページ</h1>;
+import { getTags } from '@/api/getTags';
+import { MemoCreate } from '@/features/MemoCreate';
+
+export default async function MemoCreatePage() {
+	const tags = await getTags();
+	return <MemoCreate tags={tags} />;
 }

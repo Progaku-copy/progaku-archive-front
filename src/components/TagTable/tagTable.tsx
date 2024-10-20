@@ -1,19 +1,22 @@
-import Text from '@/components/Text';
-import IconButton from '@/components/IconButton';
+import IconButton from '../IconButton/index';
+import Text from '../Text';
 
-type Tag = {
-	id: number;
-	name: string;
-	priority: number;
-};
+import { Tag } from '@/Types';
 
 type Props = {
-	tags?: Tag[];
+	tags: Tag[];
 	editOnClickIcon: (id: number) => void;
 	deleteOnClickIcon: (id: number) => void;
 };
 
-const TagTable = ({ tags, editOnClickIcon, deleteOnClickIcon }: Props) => {
+const TagTable = ({ tags }: Props) => {
+	const editOnClickIcon = (id: number) => {
+		console.log(`edit: ${id}`);
+	};
+	const deleteOnClickIcon = (id: number) => {
+		console.log(`delete: ${id}`);
+	};
+
 	return (
 		<div className='flex justify-center'>
 			<div className='space-y-2'>
@@ -32,14 +35,18 @@ const TagTable = ({ tags, editOnClickIcon, deleteOnClickIcon }: Props) => {
 									<IconButton
 										iconType='edit'
 										size='s'
-										onClickHandler={() => editOnClickIcon(tag.id)}
+										onClickHandler={() =>
+											editOnClickIcon(tag.id ?? 0)
+										}
 									></IconButton>
 								</div>
 								<div className='m-2'>
 									<IconButton
 										iconType='delete'
 										size='s'
-										onClickHandler={() => deleteOnClickIcon(tag.id)}
+										onClickHandler={() =>
+											deleteOnClickIcon(tag.id ?? 0)
+										}
 									></IconButton>
 								</div>
 							</div>

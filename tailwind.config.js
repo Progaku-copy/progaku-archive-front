@@ -19,6 +19,9 @@ module.exports = {
 				'tag-table-name': '100px',
 				'tag-table-icon': '20px',
 			},
+			fontFamily: {
+				noto: ['"Noto Sans"', 'sans-serif'],
+			},
 		},
 	},
 	plugins: [
@@ -39,8 +42,6 @@ module.exports = {
 					'::-webkit-scrollbar-track': {
 						background: 'transparent',
 					},
-				},
-				'.scrollbar-thin': {
 					scrollbarWidth: 'thin',
 					scrollbarColor: '#888 transparent',
 				},

@@ -1,27 +1,17 @@
 'use client';
 
-import ColorButton from '@/components/ColorButton';
-import TagTable from '@/components/TagTable/tagTable';
-import Modal from '@/components/Modal';
 import { useState } from 'react';
 
-type Tag = {
-	id: number;
-	name: string;
-	priority: number;
-};
-
-type OptionalIdTag = {
-	id?: number;
-	name: string;
-	priority: number;
-};
+import { Tag } from '@/Types';
+import ColorButton from '@/components/ColorButton';
+import Modal from '@/components/Modal';
+import TagTable from '@/components/TagTable/tagTable';
 
 type Props = {
-	tags?: Tag[];
+	tags: Tag[];
 	onClickEditIcon: (id: number) => void;
 	onClickDeleteIcon: (id: number) => void;
-	onClickSubmitButton: (tag: OptionalIdTag) => void;
+	onClickSubmitButton: (tag: Tag) => void;
 };
 
 const TagUpdate = ({
@@ -31,11 +21,12 @@ const TagUpdate = ({
 	onClickSubmitButton,
 }: Props) => {
 	const [tagName, setTagName] = useState('');
-	const [tagId, setTagId] = useState<number | undefined>(undefined);
+	const [tagId, setTagId] = useState<Tag['id']>(null);
 	const [mode, setMode] = useState<'edit' | 'create' | undefined>();
+
 	const createOnClickButton = () => {
 		setMode('create');
-		setTagId(undefined);
+		setTagId(null);
 	};
 	const editOnClickIcon = (id: number) => {
 		setMode('edit');
@@ -47,10 +38,9 @@ const TagUpdate = ({
 		onClickDeleteIcon(id);
 	};
 	const submitOnClickButton = () => {
-		const tag: OptionalIdTag = {
+		const tag: Tag = {
 			id: tagId,
 			name: tagName,
-			priority: 0,
 		};
 		onClickSubmitButton(tag);
 		setMode(undefined);
@@ -59,7 +49,7 @@ const TagUpdate = ({
 	return (
 		<div>
 			<div className='mx-auto max-w-4xl flex-col py-10'>
-				<div className='m-1 space-y-12 px-40 py-20 pl-10 pr-10 pt-20'>
+				<div className='m-1 space-y-12 px-40 py-20'>
 					<div className='flex justify-end'>
 						<ColorButton
 							label='タグを作成'
@@ -77,7 +67,7 @@ const TagUpdate = ({
 				</div>
 			</div>
 			<div
-				className={`${mode !== undefined ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} fixed inset-10 z-10 items-center bg-white bg-opacity-50 transition-opacity duration-200`}
+				className={`${mode !== undefined ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} fixed inset-10 z-10 items-center bg-white/50 transition-opacity duration-200`}
 			>
 				<Modal
 					onClose={() => {
