@@ -42,7 +42,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
 		tags: DUMMY_TAGS,
-		editOnClickIcon: (id: number) => {},
-		deleteOnClickIcon: (id: number) => {},
+		editOnClickIcon: () => console.log('edit'),
+		deleteOnClickIcon: () => console.log('delete'),
 	},
 };

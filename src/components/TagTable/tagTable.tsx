@@ -35,14 +35,18 @@ const TagTable = ({ tags }: Props) => {
 									<IconButton
 										iconType='edit'
 										size='s'
-										onClickHandler={() => editOnClickIcon(tag.id)}
+										onClickHandler={() =>
+											editOnClickIcon(tag.id ?? 0)
+										}
 									></IconButton>
 								</div>
 								<div className='m-2'>
 									<IconButton
 										iconType='delete'
 										size='s'
-										onClickHandler={() => deleteOnClickIcon(tag.id)}
+										onClickHandler={() =>
+											deleteOnClickIcon(tag.id ?? 0)
+										}
 									></IconButton>
 								</div>
 							</div>

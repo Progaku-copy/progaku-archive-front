@@ -24,7 +24,7 @@ export function MemoCreate({ tags }: Props) {
 	const router = useRouter();
 
 	const handleClickSubmitButton = () => {
-		const tagIds = selectedTags.map((tag) => tag.id);
+		const tagIds = selectedTags.map((tag) => tag.id ?? 0);
 		void createMemo(title, content, poster, tagIds);
 		router.push('/memoList');
 	};

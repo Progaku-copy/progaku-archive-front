@@ -5,7 +5,7 @@ import React, { useMemo, useRef, useState } from 'react';
 import Text from '../Text';
 
 type OptionType = {
-	id: number;
+	id: number | null;
 	name: string;
 };
 
