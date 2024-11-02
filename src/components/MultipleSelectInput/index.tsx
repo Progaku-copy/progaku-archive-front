@@ -11,7 +11,7 @@ type OptionType = {
 
 type Props<T> = {
 	placeholder: string;
-	label: string;
+	label?: string;
 	selectOptions: T[];
 	selectedChips: T[];
 	setSelectedChips: (value: T[]) => void;
@@ -19,7 +19,7 @@ type Props<T> = {
 
 const MultipleSelectInput = <T extends OptionType>({
 	placeholder,
-	label,
+	label = '',
 	selectOptions,
 	selectedChips,
 	setSelectedChips,

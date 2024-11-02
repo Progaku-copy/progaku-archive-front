@@ -1,7 +1,12 @@
+import { Memo } from '@/Types';
+
 export async function getMemoDetail(id: number) {
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos/${id}`, {
 		method: 'GET',
 		credentials: 'include',
+		headers: {
+			'Content-Type': 'application/json',
+		},
 	});
 
 	if (response.status === 500) {
@@ -9,5 +14,7 @@ export async function getMemoDetail(id: number) {
 		throw new Error('Failed to getMemoList');
 	}
 
-	return response;
+	const data: Memo = await response.json();
+
+	return data;
 }

@@ -19,4 +19,5 @@ export type Memo = {
 	created_at: string;
 	updated_at: string;
 	comments: Comment[];
+	tags: Tag[];
 };

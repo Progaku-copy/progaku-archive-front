@@ -1,23 +1,20 @@
-import { Tag as TagType } from '@/Types';
+import { Memo } from '@/Types';
 import Tag from '@/components/Tag';
 import Text from '@/components/Text';
 import Title from '@/components/Title';
 
 type Props = {
-	userName: string;
-	createdDate: string;
-	memoTitle: string;
-	tags: TagType[];
+	memo: Memo;
 };
 
-const MemoListItem = ({ userName, createdDate, memoTitle, tags }: Props) => {
+const MemoListItem = ({ memo }: Props) => {
 	return (
 		<div className='flex flex-col justify-center gap-2 rounded-lg bg-gray-100 p-3'>
-			<Text fontSize='l'>{userName}</Text>
-			<Text fontSize='s'>{createdDate}</Text>
-			<Title isBold>{memoTitle}</Title>
+			<Text fontSize='l'>{memo.poster}</Text>
+			<Text fontSize='s'>{memo.created_at}</Text>
+			<Title isBold>{memo.title}</Title>
 			<div className='flex flex-wrap'>
-				{tags.map((tag) => {
+				{memo.tags.map((tag) => {
 					return (
 						<div className='mb-1 mr-1'>
 							<Tag key={tag.id}>{tag.name}</Tag>

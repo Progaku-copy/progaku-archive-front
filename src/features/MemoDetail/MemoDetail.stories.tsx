@@ -88,11 +88,11 @@ const memo: Memo = {
 	created_at: '2024-09-05T10:12:14.000Z',
 	updated_at: '2024-12-15T10:12:14.000Z',
 	comments: [],
+	tags: tags,
 };
 
 export const Default: Story = {
 	args: {
 		memo: memo,
-		tags: tags,
 	},
 };
