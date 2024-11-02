@@ -90,7 +90,7 @@ const MultipleSelectInput = <T extends OptionType>({
 			>
 				{!!label && <Text>{label}</Text>}
 			</div>
-			<div className={labelPosition === 'left' ? `w-full` : ''}>
+			<div className={labelPosition === 'left' ? `relative w-full` : 'relative'}>
 				<div
 					onClick={handleClickForm}
 					className='inline-flex h-11 w-full max-w-full flex-nowrap items-center overflow-hidden rounded-lg border-2 border-light-gray px-2'
@@ -134,7 +134,7 @@ const MultipleSelectInput = <T extends OptionType>({
 					</div>
 				</div>
 				{isOpenMenu && (
-					<div className='fixed max-h-96 overflow-auto rounded-lg border-2 border-light-gray bg-white py-2'>
+					<div className='absolute max-h-96 w-full overflow-auto rounded-lg border-2 border-light-gray bg-white py-2'>
 						{filteredOptions.length > 0 ? (
 							filteredOptions.map((option) => (
 								<div
