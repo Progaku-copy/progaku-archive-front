@@ -1,4 +1,5 @@
 import { Tag as TagType } from '@/Types';
+import DateLabel from '@/components/DateLabel';
 import Tag from '@/components/Tag';
 import Text from '@/components/Text';
 import Title from '@/components/Title';
@@ -14,7 +15,10 @@ const MemoListItem = ({ userName, createdDate, memoTitle, tags }: Props) => {
 	return (
 		<div className='flex flex-col justify-center gap-2 rounded-lg bg-gray-100 p-3'>
 			<Text fontSize='l'>{userName}</Text>
-			<Text fontSize='s'>{createdDate}</Text>
+			<DateLabel
+				fontSize='s'
+				utcDateTimeString={createdDate}
+			/>
 			<Title isBold>{memoTitle}</Title>
 			<div className='flex flex-wrap'>
 				{tags.map((tag) => {
