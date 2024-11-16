@@ -1,16 +1,17 @@
-import Link from 'next/link';
 import React from 'react';
+
+import Link from 'next/link';
 
 type Props = {
 	children: React.ReactNode;
 	href: string;
 };
 
-const LinkText: React.FC<Props> = ({ children, href }) => {
+const LinkText = ({ children, href }: Props) => {
 	return (
 		<Link
 			href={href}
-			className='font-noto-sans text-[24px] !text-white text-white transition-opacity duration-300 hover:opacity-70'
+			className='font-noto text-[24px] text-white transition-opacity duration-300 hover:opacity-70'
 			style={{ color: 'white' }}
 			onClick={(e) => {
 				e.preventDefault();
