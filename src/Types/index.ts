@@ -20,3 +20,14 @@ export type Memo = {
 	updated_at: string;
 	comments: Comment[];
 };
+
+export type User = {
+	accountName: string;
+	isAdmin: boolean;
+};
+
+export type AuthContextType = {
+	user: User | undefined;
+	login: (user: User, sessionId: string) => void;
+	logout: () => void;
+};

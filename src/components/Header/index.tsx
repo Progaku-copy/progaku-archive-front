@@ -1,12 +1,13 @@
 "use client";
-import React, { useState } from 'react';
+
+import React from 'react';
 import LinkText from '../LinkText';
 
 interface HeaderProps {
 	isAdmin: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ isAdmin }) => {
+export const Header: React.FC<HeaderProps> = ({ isAdmin }) => {
 	return (
 		<header className='bg-light-blue text-white shadow-md'>
 			<div className='flex justify-evenly px-4 py-3'>
@@ -27,5 +28,3 @@ const Header: React.FC<HeaderProps> = ({ isAdmin }) => {
 		</header>
 	);
 };
-
-export default Header;
