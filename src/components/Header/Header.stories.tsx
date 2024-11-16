@@ -21,11 +21,9 @@ export default meta;
 type Story = StoryObj<typeof Header>;
 
 export const UserHeader: Story = {
-  args: {
-    isAdmin: false,
-    onSearch: (query: any) => console.log('Search query:', query),
-    onTagManagement: () => console.log('Tag management clicked'),
-  },
+	args: {
+		isAdmin: false,
+	},
 };
 
 export const AdminHeader: Story = {
