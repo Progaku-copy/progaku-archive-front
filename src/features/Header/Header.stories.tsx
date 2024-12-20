@@ -10,14 +10,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const UserHeader: Story = {
-	args: {
-		isAdmin: false,
-	},
-};
-
-export const AdminHeader: Story = {
-	args: {
-		isAdmin: true,
-	},
+export const Header: Story = {
+	args: {},
 };
