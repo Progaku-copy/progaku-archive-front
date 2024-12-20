@@ -23,7 +23,6 @@ export type Memo = {
 
 export type User = {
 	accountName: string;
-	isAdmin: boolean;
 };
 
 export type AuthContextType = {

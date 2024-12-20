@@ -1,8 +1,10 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { AuthContextType, User } from '@/Types';
+
 import Cookies from 'js-cookie';
+
+import { AuthContextType, User } from '@/Types';
 
 const AuthContext = createContext<AuthContextType>({
 	user: undefined,
@@ -41,7 +43,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 			// 開発時のみ有効
 			setUser({
 				accountName: 'adminUser',
-				isAdmin: true,
 			});
 			Cookies.set('sessionId', 'devOnly');
 		}

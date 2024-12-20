@@ -1,6 +1,6 @@
-import { Header as ProgakuHeader } from '@/components/Header';
-
 import type { Meta, StoryObj } from '@storybook/react';
+
+import { Header as ProgakuHeader } from '@/components/Header';
 
 const meta = {
 	title: 'features/Header',
