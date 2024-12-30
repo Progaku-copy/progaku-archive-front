@@ -3,6 +3,9 @@ import { Noto_Sans_JP } from 'next/font/google';
 import type { Metadata } from 'next';
 
 import './globals.css';
+import React from 'react';
+import { AuthProvider } from '@/context/authContext';
+import Header from '@/features/Header';
 
 const noto = Noto_Sans_JP({
 	display: 'swap',
@@ -21,7 +24,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			lang='ja'
 			className={String(noto.variable)}
 		>
-			<body>{children}</body>
+			<body>
+				<React.StrictMode>
+					<AuthProvider>
+						<Header></Header>
+						{children}
+					</AuthProvider>
+				</React.StrictMode>
+			</body>
 		</html>
 	);
 }
