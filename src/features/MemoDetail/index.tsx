@@ -1,4 +1,6 @@
-import { Memo, Tag as TagType } from '@/Types';
+'use client';
+
+import { Memo } from '@/Types';
 import DateLabel from '@/components/DateLabel';
 import IconButton from '@/components/IconButton';
 import Tag from '@/components/Tag';
@@ -7,16 +9,18 @@ import Title from '@/components/Title';
 
 type Props = {
 	memo: Memo;
-	tags: TagType[];
 };
 
-export function MemoDetail({ memo, tags }: Props) {
+export function MemoDetail({ memo }: Props) {
 	const onClickEditButton = (id: number) => {
 		console.log('edit id', { id });
 	};
 	const onClickDeleteButton = (id: number) => {
 		console.log('delete id', { id });
 	};
+
+	console.log('memo', memo);
+
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
 			<div className='flex'>
@@ -45,7 +49,7 @@ export function MemoDetail({ memo, tags }: Props) {
 				{memo.title}
 			</Title>
 			<div className='flex flex-wrap'>
-				{tags.map((tag) => {
+				{memo.tags?.map((tag) => {
 					return (
 						<div className='mb-1 mr-1'>
 							<Tag key={tag.id}>{tag.name}</Tag>

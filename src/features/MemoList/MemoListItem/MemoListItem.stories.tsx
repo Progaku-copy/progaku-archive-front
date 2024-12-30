@@ -81,9 +81,15 @@ const tags: Tag[] = [
 
 export const Default: Story = {
 	args: {
-		userName: 'ユーザ名',
-		createdDate: '2024/1/1((日付の型定義は親画面で担保)',
-		memoTitle: 'メモタイトル',
-		tags: tags,
+		memo: {
+			poster: 'ユーザ名',
+			created_at: '2024/1/1',
+			title: 'メモタイトル',
+			tags: tags,
+			id: 1,
+			content: 'メモ内容',
+			updated_at: '2024/1/1',
+			comments: [],
+		},
 	},
 };

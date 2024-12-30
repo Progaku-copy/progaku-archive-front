@@ -46,7 +46,6 @@ export function MemoCreate({ tags }: Props) {
 				setSelectedChips={setSelectedTags}
 				selectedChips={selectedTags}
 				placeholder='タグ名を入力してください'
-				label='タグ検索'
 				selectOptions={tags}
 			/>
 			<TextArea
