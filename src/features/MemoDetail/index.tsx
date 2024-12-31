@@ -19,8 +19,6 @@ export function MemoDetail({ memo }: Props) {
 		console.log('delete id', { id });
 	};
 
-	console.log('memo', memo);
-
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
 			<div className='flex'>

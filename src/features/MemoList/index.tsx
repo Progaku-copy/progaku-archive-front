@@ -4,16 +4,17 @@ import Pagination from './Pagination';
 import { Memo } from '@/Types';
 
 type Props = {
-	memos: Memo[];
+	memos: Memo[]; // 配列が格納されるプロパティ
+	total_page: number; // ページ数のプロパティ
 };
 
-const MemoList = ({ memos }: Props) => {
+const MemoList = ({ memos, total_page }: Props) => {
 	return (
 		<>
 			{memos.map((memo) => (
 				<MemoListItem memo={memo} />
 			))}
-			<Pagination totalPageNumber={10} />
+			<Pagination totalPageNumber={total_page} />
 		</>
 	);
 };
