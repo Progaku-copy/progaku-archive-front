@@ -1,11 +1,14 @@
 import { Memo } from '@/Types';
+import { cookies } from 'next/headers';
 
 export async function getMemos() {
+	const cookieHeader = cookies().toString();
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos`, {
 		method: 'GET',
 		credentials: 'include',
 		headers: {
 			'Content-Type': 'application/json',
+			Cookie: cookieHeader,
 		},
 	});
 
@@ -22,7 +25,8 @@ export async function getMemos() {
 		throw new Error('Failed to getMemos');
 	}
 
-	const data: Memo[] = await response.json();
+	const data = await response.json();
 	console.log(data);
-	return data;
+	const memos: Memo[] = data.memos;
+	return memos;
 }

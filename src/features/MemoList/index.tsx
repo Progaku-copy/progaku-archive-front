@@ -80,5 +80,17 @@ export function MemoList({
 				<Pagination totalPageNumber={memoTotalPage}></Pagination>
 			</div>
 		</div>
+	memos: Memo[]; // 配列が格納されるプロパティ
+	total_page: number; // ページ数のプロパティ
+};
+
+const MemoList = ({ memos, total_page }: Props) => {
+	return (
+		<>
+			{memos.map((memo) => (
+				<MemoListItem memo={memo} />
+			))}
+			<Pagination totalPageNumber={total_page} />
+		</>
 	);
 }
