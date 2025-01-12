@@ -15,6 +15,7 @@ type Props<T> = {
 	selectOptions: T[];
 	selectedChips: T[];
 	setSelectedChips: (value: T[]) => void;
+	labelPosition?: 'left' | 'top';
 };
 
 const MultipleSelectInput = <T extends OptionType>({
@@ -23,6 +24,7 @@ const MultipleSelectInput = <T extends OptionType>({
 	selectOptions,
 	selectedChips,
 	setSelectedChips,
+	labelPosition = 'top',
 }: Props<T>) => {
 	const [inputValue, setInputValue] = useState('');
 	const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -80,72 +82,84 @@ const MultipleSelectInput = <T extends OptionType>({
 	}, [selectOptions, inputValue]);
 
 	return (
-		<div>
-			{!!label && <Text>{label}</Text>}
+		<div className={labelPosition === 'left' ? 'flex items-center' : ''}>
 			<div
-				onClick={handleClickForm}
-				className='inline-flex h-11 w-full max-w-full flex-nowrap items-center overflow-hidden rounded-lg border-2 border-light-gray px-2'
+				className={
+					labelPosition === 'left' ? `inline-flex h-11 w-28 items-center` : ''
+				}
 			>
-				{!isFocus && selectedChips.length > 0 && (
-					<div className='flex flex-nowrap gap-2 overflow-x-auto scrollbar-thin'>
-						{selectedChips.map((option) => (
-							<div
-								key={option.id}
-								className='inline-flex flex-nowrap items-center rounded-full bg-gray-200 px-3 py-0.5'
-							>
-								<div className='max-w-[150px] truncate'>
-									<Text>{option.name}</Text>
-								</div>
-								<button
-									onClick={(e) => handleClickDeleteButton(e, option)}
-									className='size-4 cursor-pointer rounded-full bg-gray-400 text-white transition hover:opacity-75'
-								>
-									<span className='i-ic-baseline-close mb-0.5' />
-								</button>
-							</div>
-						))}
-					</div>
-				)}
-				<div className='relative grow'>
-					<input
-						ref={inputRef}
-						type='text'
-						value={inputValue}
-						onChange={(e) => handleChangeInputValue(e.target.value)}
-						placeholder={selectedChips.length > 0 ? '' : placeholder}
-						className='relative w-full min-w-[20px] border-none p-1 outline-none'
-						onFocus={handleFocusInput}
-						onBlur={handleBlurInput}
-					/>
-					<span
-						className={`${isOpenMenu ? 'i-ic-baseline-arrow-drop-up' : 'i-ic-baseline-arrow-drop-down'} absolute right-3 size-8 text-black`}
-					></span>
-				</div>
+				{!!label && <Text>{label}</Text>}
 			</div>
-			{isOpenMenu && (
-				<div className='max-h-96 overflow-auto rounded-lg border-2 border-light-gray py-2'>
-					{filteredOptions.length > 0 ? (
-						filteredOptions.map((option) => (
-							<div
-								key={option.id}
-								onClick={() => handleClickMenuItem(option)}
-								onMouseDown={handleMouseDown}
-								className={`cursor-pointer border-gray-200 p-2 transition hover:opacity-75 ${
-									selectedChips.some((chip) => chip.id === option.id)
-										? 'bg-gray-200'
-										: ''
-								}`}
-							>
-								<Text>{option.name}</Text>
-							</div>
-						))
-					) : (
-						<div className='p-2'>
-							<Text>データがありません</Text>
+			<div className={labelPosition === 'left' ? `relative w-full` : 'relative'}>
+				<div
+					onClick={handleClickForm}
+					className='inline-flex h-11 w-full max-w-full flex-nowrap items-center overflow-hidden rounded-lg border-2 border-light-gray px-2'
+				>
+					{!isFocus && selectedChips.length > 0 && (
+						<div className='flex flex-nowrap gap-2 overflow-x-auto scrollbar-thin'>
+							{selectedChips.map((option) => (
+								<div
+									key={option.id}
+									className='inline-flex flex-nowrap items-center rounded-full bg-gray-200 px-3 py-0.5'
+								>
+									<div className='max-w-[150px] truncate'>
+										<Text>{option.name}</Text>
+									</div>
+									<button
+										onClick={(e) =>
+											handleClickDeleteButton(e, option)
+										}
+										className='size-4 cursor-pointer rounded-full bg-gray-400 text-white transition hover:opacity-75'
+									>
+										<span className='i-ic-baseline-close mb-0.5' />
+									</button>
+								</div>
+							))}
 						</div>
 					)}
+					<div className='relative grow'>
+						<input
+							ref={inputRef}
+							type='text'
+							value={inputValue}
+							onChange={(e) => handleChangeInputValue(e.target.value)}
+							placeholder={selectedChips.length > 0 ? '' : placeholder}
+							className='relative w-full min-w-[20px] border-none p-1 outline-none'
+							onFocus={handleFocusInput}
+							onBlur={handleBlurInput}
+						/>
+						<span
+							className={`${isOpenMenu ? 'i-ic-baseline-arrow-drop-up' : 'i-ic-baseline-arrow-drop-down'} absolute right-3 size-8 text-black`}
+						></span>
+					</div>
 				</div>
-			)}
+				{isOpenMenu && (
+					<div className='absolute max-h-96 w-full overflow-auto rounded-lg border-2 border-light-gray bg-white py-2'>
+						{filteredOptions.length > 0 ? (
+							filteredOptions.map((option) => (
+								<div
+									key={option.id}
+									onClick={() => handleClickMenuItem(option)}
+									onMouseDown={handleMouseDown}
+									className={`cursor-pointer border-gray-200 p-2 transition hover:opacity-75 ${
+										selectedChips.some(
+											(chip) => chip.id === option.id,
+										)
+											? 'bg-gray-200'
+											: ''
+									}`}
+								>
+									<Text>{option.name}</Text>
+								</div>
+							))
+						) : (
+							<div className='p-2'>
+								<Text>データがありません</Text>
+							</div>
+						)}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };
