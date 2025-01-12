@@ -21,3 +21,13 @@ export type Memo = {
 	comments: Comment[];
 	tags: Tag[];
 };
+
+export type User = {
+	accountName: string;
+};
+
+export type AuthContextType = {
+	user: User | undefined;
+	login: (user: User, sessionId: string) => void;
+	logout: () => void;
+};
