@@ -1,9 +1,9 @@
+import { Memo, Tag } from '@/Types';
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
 import MultipleSelectInput from '@/components/MultipleSelectInput';
 import MemoListItem from '@/features/MemoList/MemoListItem';
 import Pagination from '@/features/MemoList/Pagination';
-import { Memo, Tag } from '@/Types';
 
 type Props = {
 	memos: Memo[];
@@ -62,35 +62,13 @@ export function MemoList({
 				</div>
 			</div>
 			<div className='space-y-5'>
-				{memos.map((memo) => {
-					return (
-						<div className='m-1'>
-							<MemoListItem
-								key={memo.id}
-								userName={memo.poster}
-								createdDate={memo.created_at}
-								memoTitle={memo.title}
-								tags={memo.tags}
-							></MemoListItem>
-						</div>
-					);
-				})}
-			</div>
-			<div className='flex justify-center'>
-				<Pagination totalPageNumber={memoTotalPage}></Pagination>
+				{memos.map((memo) => (
+					<MemoListItem memo={memo} />
+				))}
+				<Pagination totalPageNumber={memoTotalPage} />
 			</div>
 		</div>
-	memos: Memo[]; // 配列が格納されるプロパティ
-	total_page: number; // ページ数のプロパティ
-};
-
-const MemoList = ({ memos, total_page }: Props) => {
-	return (
-		<>
-			{memos.map((memo) => (
-				<MemoListItem memo={memo} />
-			))}
-			<Pagination totalPageNumber={total_page} />
-		</>
 	);
 }
+
+export default MemoList;
