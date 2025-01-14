@@ -15,7 +15,7 @@ export function Login() {
 
 	const handleLogin = () => {
 		void loginUser(userName, password);
-		router.push('/memoList');
+		setTimeout(() => router.push('/memoList'), 500); // 0.5秒後に遷移(Cookieが設定される前に遷移するため一旦仮で設定)
 	};
 
 	return (

@@ -1,8 +1,8 @@
+import { MemoList } from '.';
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Memo, Tag } from '@/Types';
-
-import { MemoList } from '.';
 
 const meta = {
 	title: 'features/MemoList',
@@ -113,6 +113,6 @@ export const Default: Story = {
 		setSearchMemoContent: () => {},
 		selectedChips: [],
 		setSelectedChips: () => {},
-		searchButtonClicked: () => {},
+		handleClickSearchButton: () => {},
 	},
 };

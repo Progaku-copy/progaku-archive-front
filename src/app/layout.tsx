@@ -1,9 +1,11 @@
+import React from 'react';
+
 import { Noto_Sans_JP } from 'next/font/google';
 
 import type { Metadata } from 'next';
 
 import './globals.css';
-import React from 'react';
+
 import { AuthProvider } from '@/context/authContext';
 import Header from '@/features/Header';
 

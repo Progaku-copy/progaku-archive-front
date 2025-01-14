@@ -1,9 +1,9 @@
+import { Memo, Tag } from '@/Types';
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
 import MultipleSelectInput from '@/components/MultipleSelectInput';
 import MemoListItem from '@/features/MemoList/MemoListItem';
 import Pagination from '@/features/MemoList/Pagination';
-import { Memo, Tag } from '@/Types';
 
 type Props = {
 	memos: Memo[];
@@ -13,7 +13,7 @@ type Props = {
 	setSearchMemoContent: (searchValue: string) => void;
 	selectedChips: Tag[];
 	setSelectedChips: (selectedChips: Tag[]) => void;
-	searchButtonClicked: () => void;
+	handleClickSearchButton: () => void;
 };
 
 export function MemoList({
@@ -24,7 +24,7 @@ export function MemoList({
 	setSearchMemoContent,
 	selectedChips,
 	setSelectedChips,
-	searchButtonClicked,
+	handleClickSearchButton,
 }: Props) {
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
@@ -56,29 +56,19 @@ export function MemoList({
 						<ColorButton
 							color='green'
 							label='検索'
-							handleClickButton={searchButtonClicked}
+							handleClickButton={handleClickSearchButton}
 						/>
 					</div>
 				</div>
 			</div>
 			<div className='space-y-5'>
-				{memos.map((memo) => {
-					return (
-						<div className='m-1'>
-							<MemoListItem
-								key={memo.id}
-								userName={memo.poster}
-								createdDate={memo.created_at}
-								memoTitle={memo.title}
-								tags={memo.tags}
-							></MemoListItem>
-						</div>
-					);
-				})}
-			</div>
-			<div className='flex justify-center'>
-				<Pagination totalPageNumber={memoTotalPage}></Pagination>
+				{memos.map((memo) => (
+					<MemoListItem memo={memo} />
+				))}
+				<Pagination totalPageNumber={memoTotalPage} />
 			</div>
 		</div>
 	);
 }
+
+export default MemoList;

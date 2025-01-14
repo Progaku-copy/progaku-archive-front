@@ -1,11 +1,15 @@
+import { cookies } from 'next/headers';
+
 import { Memo } from '@/Types';
 
 export async function getMemoDetail(id: number) {
+	const cookieHeader = cookies().toString();
 	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos/${id}`, {
 		method: 'GET',
 		credentials: 'include',
 		headers: {
 			'Content-Type': 'application/json',
+			Cookie: cookieHeader,
 		},
 	});
 
@@ -13,8 +17,7 @@ export async function getMemoDetail(id: number) {
 		// TODO: アラート出す
 		throw new Error('Failed to getMemoList');
 	}
-
-	const data: Memo = await response.json();
-
-	return data;
+	const data = await response.json();
+	const memo: Memo = data.memo; // `data.memo` の部分だけを取り出す
+	return memo;
 }
