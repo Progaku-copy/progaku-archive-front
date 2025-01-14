@@ -1,5 +1,6 @@
-import { Memo } from '@/Types';
 import { cookies } from 'next/headers';
+
+import { Memo } from '@/Types';
 
 export async function getMemoDetail(id: number) {
 	const cookieHeader = cookies().toString();

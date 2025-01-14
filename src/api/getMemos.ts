@@ -1,5 +1,6 @@
-import { Memo } from '@/Types';
 import { cookies } from 'next/headers';
+
+import { Memo } from '@/Types';
 
 export async function getMemos() {
 	const cookieHeader = cookies().toString();
@@ -25,8 +26,6 @@ export async function getMemos() {
 		throw new Error('Failed to getMemos');
 	}
 
-	const data = await response.json();
-	console.log(data);
-	const memos: Memo[] = data.memos;
-	return memos;
+	const data: { memos: Memo[] } = await response.json();
+	return data.memos;
 }

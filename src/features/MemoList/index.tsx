@@ -13,7 +13,7 @@ type Props = {
 	setSearchMemoContent: (searchValue: string) => void;
 	selectedChips: Tag[];
 	setSelectedChips: (selectedChips: Tag[]) => void;
-	searchButtonClicked: () => void;
+	handleClickSearchButton: () => void;
 };
 
 export function MemoList({
@@ -24,7 +24,7 @@ export function MemoList({
 	setSearchMemoContent,
 	selectedChips,
 	setSelectedChips,
-	searchButtonClicked,
+	handleClickSearchButton,
 }: Props) {
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
@@ -56,7 +56,7 @@ export function MemoList({
 						<ColorButton
 							color='green'
 							label='検索'
-							handleClickButton={searchButtonClicked}
+							handleClickButton={handleClickSearchButton}
 						/>
 					</div>
 				</div>
