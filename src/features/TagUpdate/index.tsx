@@ -21,12 +21,12 @@ const TagUpdate = ({
 	onClickSubmitButton,
 }: Props) => {
 	const [tagName, setTagName] = useState('');
-	const [tagId, setTagId] = useState<Tag['id']>(null);
+	const [tagId, setTagId] = useState<Tag['id']>(0);
 	const [mode, setMode] = useState<'edit' | 'create' | undefined>();
 
 	const createOnClickButton = () => {
 		setMode('create');
-		setTagId(null);
+		setTagId(0);
 	};
 	const editOnClickIcon = (id: number) => {
 		setMode('edit');
