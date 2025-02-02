@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 import { Memo, Tag } from '@/Types';
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
@@ -9,23 +13,16 @@ type Props = {
 	memos: Memo[];
 	memoTotalPage: number;
 	tags: Tag[];
-	searchMemoContent: string;
-	setSearchMemoContent: (searchValue: string) => void;
-	selectedChips: Tag[];
-	setSelectedChips: (selectedChips: Tag[]) => void;
-	handleClickSearchButton: () => void;
 };
 
-export function MemoList({
-	memos,
-	memoTotalPage,
-	tags,
-	searchMemoContent,
-	setSearchMemoContent,
-	selectedChips,
-	setSelectedChips,
-	handleClickSearchButton,
-}: Props) {
+const handleClickSearchButton = () => {
+	console.log('search');
+};
+
+export function MemoList({ memos, memoTotalPage, tags }: Props) {
+	const [searchMemoContent, setSearchMemoContent] = useState('');
+	const [selectedChips, setSelectedChips] = useState<Tag[]>([]);
+
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
 			<div>
