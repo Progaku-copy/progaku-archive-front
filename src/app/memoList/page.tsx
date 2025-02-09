@@ -1,19 +1,28 @@
+import { MemoResponse } from '@/Types';
 import { getMemos } from '@/api/getMemos';
 import { getTags } from '@/api/getTags';
 import MemoList from '@/features/MemoList';
 
-export default async function MemoListPage() {
-	const memos = await getMemos();
+type Props = {
+	searchParams: {
+		page?: string;
+		[key: string]: string | undefined;
+	};
+};
+
+export default async function MemoListPage({ searchParams }: Props) {
+	const page = searchParams.page || '1';
+	const memoResponse: MemoResponse = await getMemos(`page=${page}`);
 	const tags = await getTags();
 
-	if (!memos || memos.length === 0) {
+	if (!memoResponse.memos || memoResponse.memos.length === 0) {
 		return <div>メモが見つかりません</div>;
 	}
 
 	return (
 		<MemoList
-			memos={memos}
-			memoTotalPage={memos.length}
+			memos={memoResponse.memos}
+			memoTotalPage={memoResponse.total_page}
 			tags={tags}
 		></MemoList>
 	);

@@ -12,6 +12,11 @@ export type Comment = {
 	updated_at: string;
 };
 
+export type MemoResponse = {
+	memos: Memo[];
+	total_page: number;
+};
+
 export type Memo = {
 	id: number;
 	title: string;
