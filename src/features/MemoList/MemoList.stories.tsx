@@ -109,10 +109,5 @@ export const Default: Story = {
 		memos: DUMMY_DATA_MEMOS,
 		memoTotalPage: 1,
 		tags: DUMMY_DATA_TAGS,
-		searchMemoContent: '',
-		setSearchMemoContent: () => {},
-		selectedChips: [],
-		setSelectedChips: () => {},
-		handleClickSearchButton: () => {},
 	},
 };
