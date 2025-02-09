@@ -13,7 +13,10 @@ type Props = {
 const Text = ({ children, fontSize = 'm', color = 'black' }: Props) => {
 	const textColor = `text-${color}`;
 	return (
-		<span className={`font-noto ${FONT_SIZES[fontSize]} ${textColor}`}>
+		<span
+			style={{ whiteSpace: 'pre-line' }}
+			className={`font-noto ${FONT_SIZES[fontSize]} ${textColor}`}
+		>
 			{children}
 		</span>
 	);
