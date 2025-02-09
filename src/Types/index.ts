@@ -6,6 +6,7 @@ export type Tag = {
 export type Comment = {
 	id: number;
 	memo_id: number;
+	poster: string;
 	content: string;
 	created_at: string;
 	updated_at: string;

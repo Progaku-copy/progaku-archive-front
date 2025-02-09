@@ -1,4 +1,5 @@
 import { getMemoDetail } from '@/api/getMemoDetail';
+import CommentList from '@/features/CommentList';
 import { MemoDetail } from '@/features/MemoDetail';
 type Props = {
 	params: {
@@ -7,5 +8,13 @@ type Props = {
 };
 export default async function MemoDetailPage({ params }: Props) {
 	const memo = await getMemoDetail(Number(params.id));
-	return <MemoDetail memo={memo} />;
+
+	return (
+		<div>
+			<MemoDetail memo={memo} />
+			{memo.comments && memo.comments.length > 0 && (
+				<CommentList comments={memo.comments} />
+			)}
+		</div>
+	);
 }
