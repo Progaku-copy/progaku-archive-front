@@ -1,10 +1,12 @@
 import { cookies } from 'next/headers';
 
-import { Memo } from '@/Types';
+import { MemoResponse } from '@/Types';
 
-export async function getMemos() {
+export async function getMemos(queryParams?: string): Promise<MemoResponse> {
+	const queryString = queryParams ? `?${queryParams}` : '';
 	const cookieHeader = cookies().toString();
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos`, {
+
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos${queryString}`, {
 		method: 'GET',
 		credentials: 'include',
 		headers: {
@@ -21,11 +23,12 @@ export async function getMemos() {
 	if (!response.ok) {
 		if (response.status === 401) {
 			console.log('401');
-			return [];
+
+			return { memos: [], total_page: 0 };
 		}
 		throw new Error('Failed to getMemos');
 	}
 
-	const data: { memos: Memo[] } = await response.json();
-	return data.memos;
+	const data: MemoResponse = await response.json();
+	return data;
 }

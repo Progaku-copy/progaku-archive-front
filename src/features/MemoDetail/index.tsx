@@ -2,7 +2,6 @@
 
 import { Memo } from '@/Types';
 import DateLabel from '@/components/DateLabel';
-import IconButton from '@/components/IconButton';
 import Tag from '@/components/Tag';
 import Text from '@/components/Text';
 import Title from '@/components/Title';
@@ -12,12 +11,13 @@ type Props = {
 };
 
 export function MemoDetail({ memo }: Props) {
-	const onClickEditButton = (id: number) => {
-		console.log('edit id', { id });
-	};
-	const onClickDeleteButton = (id: number) => {
-		console.log('delete id', { id });
-	};
+	// NOTE:編集、削除は行わないため、一端コメントアウト
+	// const onClickEditButton = (id: number) => {
+	// 	console.log('edit id', { id });
+	// };
+	// const onClickDeleteButton = (id: number) => {
+	// 	console.log('delete id', { id });
+	// };
 
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
@@ -25,20 +25,21 @@ export function MemoDetail({ memo }: Props) {
 				<div className='mr-auto'>
 					<Text>{memo.poster}</Text>
 				</div>
-				<div className='flex'>
-					<IconButton
-						label='編集'
-						size='s'
-						iconType='edit'
-						onClickHandler={() => onClickEditButton(memo.id)}
-					></IconButton>
-					<IconButton
-						label='削除'
-						size='s'
-						iconType='delete'
-						onClickHandler={() => onClickDeleteButton(memo.id)}
-					></IconButton>
-				</div>
+				{/*NOTE:編集、削除は行わないため、一端コメントアウト*/}
+				{/*<div className='flex'>*/}
+				{/*	<IconButton*/}
+				{/*		label='編集'*/}
+				{/*		size='s'*/}
+				{/*		iconType='edit'*/}
+				{/*		onClickHandler={() => onClickEditButton(memo.id)}*/}
+				{/*	></IconButton>*/}
+				{/*	<IconButton*/}
+				{/*		label='削除'*/}
+				{/*		size='s'*/}
+				{/*		iconType='delete'*/}
+				{/*		onClickHandler={() => onClickDeleteButton(memo.id)}*/}
+				{/*	></IconButton>*/}
+				{/*</div>*/}
 			</div>
 			<Title
 				fontSize='l'

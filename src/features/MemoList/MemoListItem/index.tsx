@@ -1,3 +1,7 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import { Memo } from '@/Types';
 import DateLabel from '@/components/DateLabel';
 import Tag from '@/components/Tag';
@@ -9,8 +13,16 @@ type Props = {
 };
 
 const MemoListItem = ({ memo }: Props) => {
+	const router = useRouter();
+	const navigateToMemoDetail = () => {
+		router.push(`/memoDetail/${memo.id}`);
+	};
+
 	return (
-		<div className='flex flex-col justify-center gap-2 rounded-lg bg-gray-100 p-3'>
+		<div
+			className='flex cursor-pointer flex-col justify-center gap-2 rounded-lg bg-gray-100 p-3'
+			onClick={navigateToMemoDetail}
+		>
 			<Text fontSize='l'>{memo.poster}</Text>
 			<DateLabel
 				fontSize='s'
