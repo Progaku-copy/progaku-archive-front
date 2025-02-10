@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { useRouter, useSearchParams } from 'next/navigation';
+
 import { Memo, Tag } from '@/Types';
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
@@ -15,13 +17,26 @@ type Props = {
 	tags: Tag[];
 };
 
-const handleClickSearchButton = () => {
-	console.log('search');
-};
-
 export function MemoList({ memos, memoTotalPage, tags }: Props) {
 	const [searchMemoContent, setSearchMemoContent] = useState('');
 	const [selectedChips, setSelectedChips] = useState<Tag[]>([]);
+
+	const router = useRouter();
+	const searchParams = useSearchParams();
+
+	const handleClickSearchButton = () => {
+		const params = new URLSearchParams(searchParams.toString());
+
+		params.set('page', '1');
+
+		if (searchMemoContent.trim()) {
+			params.set('content', searchMemoContent.trim());
+		} else {
+			params.delete('content'); // 空なら削除
+		}
+
+		router.push(`/memoList?${params.toString()}`);
+	};
 
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>

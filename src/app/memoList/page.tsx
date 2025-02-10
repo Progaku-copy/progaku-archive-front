@@ -11,8 +11,8 @@ type Props = {
 };
 
 export default async function MemoListPage({ searchParams }: Props) {
-	const page = searchParams.page || '1';
-	const memoResponse: MemoResponse = await getMemos(`page=${page}`);
+	const memoResponse: MemoResponse = await getMemos(searchParams);
+
 	const tags = await getTags();
 
 	if (!memoResponse.memos || memoResponse.memos.length === 0) {
