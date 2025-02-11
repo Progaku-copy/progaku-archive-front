@@ -28,7 +28,12 @@ const MemoListItem = ({ memo }: Props) => {
 				fontSize='s'
 				utcDateTimeString={memo.created_at}
 			/>
-			<Title isBold>{memo.title}</Title>
+			<Title
+				isBold
+				textParseFlg={true}
+			>
+				{memo.title}
+			</Title>
 			<div className='flex flex-wrap'>
 				{memo.tags.map((tag) => {
 					return (

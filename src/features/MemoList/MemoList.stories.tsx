@@ -108,6 +108,6 @@ export const Default: Story = {
 	args: {
 		memos: DUMMY_DATA_MEMOS,
 		memoTotalPage: 1,
-		tags: DUMMY_DATA_TAGS,
+		// tags: DUMMY_DATA_TAGS,
 	},
 };
