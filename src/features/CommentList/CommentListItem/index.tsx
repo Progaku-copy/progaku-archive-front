@@ -16,7 +16,7 @@ const CommentListItem = ({ comment }: Props) => {
 				fontSize='s'
 				utcDateTimeString={comment.created_at}
 			/>
-			<Text>{comment.content}</Text>
+			<Text textParseFlg={true}>{comment.content}</Text>
 		</div>
 	);
 };

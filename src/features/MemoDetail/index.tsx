@@ -44,6 +44,7 @@ export function MemoDetail({ memo }: Props) {
 			<Title
 				fontSize='l'
 				isBold
+				textParseFlg={true}
 			>
 				{memo.title}
 			</Title>
