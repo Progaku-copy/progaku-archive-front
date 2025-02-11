@@ -19,8 +19,10 @@ const useTextParser = (text: string): string => {
 
 		let isMounted = true;
 
+		const markdownText = String(text);
+
 		(async () => {
-			const result = await remark().use(emoji).use(html).process(text);
+			const result = await remark().use(emoji).use(html).process(markdownText);
 			if (isMounted) {
 				setConvertedHtml(result.toString());
 			}
