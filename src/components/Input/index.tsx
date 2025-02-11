@@ -19,7 +19,7 @@ const Input = ({
 }: Props) => {
 	return (
 		<div className={labelPosition === 'left' ? 'flex items-center' : ''}>
-			<div className={labelPosition === 'left' ? 'w-28' : ''}>
+			<div className={labelPosition === 'left' ? 'w-32' : ''}>
 				{!!label && <Text>{label}</Text>}
 			</div>
 			<div className={labelPosition === 'left' ? 'w-full' : ''}>

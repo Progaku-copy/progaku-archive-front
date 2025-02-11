@@ -48,8 +48,8 @@ export function MemoList({ memos, memoTotalPage, tags }: Props) {
 							setSelectedChips={setSelectedChips}
 							labelPosition='left'
 							selectOptions={tags}
-							placeholder='タグを入力してください'
-							label='タグ検索'
+							label='タグで検索'
+							placeholder='タグを選択してください'
 						/>
 					</div>
 					<div className='w-20'></div>
@@ -57,8 +57,8 @@ export function MemoList({ memos, memoTotalPage, tags }: Props) {
 				<div className='m-1 flex items-center'>
 					<div className='mr-5 w-4/5'>
 						<Input
-							label='メモ検索'
-							placeholder='メモを入力してください'
+							label='キーワード検索'
+							placeholder='メモの内容やタイトルを入力'
 							labelPosition='left'
 							setInputValue={setSearchMemoContent}
 							inputValue={searchMemoContent}
