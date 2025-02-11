@@ -4,22 +4,21 @@ import { useState } from 'react';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 
-import { Memo, Tag } from '@/Types';
+import { Memo } from '@/Types';
 import ColorButton from '@/components/ColorButton';
 import Input from '@/components/Input';
-import MultipleSelectInput from '@/components/MultipleSelectInput';
 import MemoListItem from '@/features/MemoList/MemoListItem';
 import Pagination from '@/features/MemoList/Pagination';
 
 type Props = {
 	memos: Memo[];
 	memoTotalPage: number;
-	tags: Tag[];
+	// tags: Tag[];
 };
 
-export function MemoList({ memos, memoTotalPage, tags }: Props) {
+export function MemoList({ memos, memoTotalPage }: Props) {
 	const [searchMemoContent, setSearchMemoContent] = useState('');
-	const [selectedChips, setSelectedChips] = useState<Tag[]>([]);
+	// const [selectedChips, setSelectedChips] = useState<Tag[]>([]);
 
 	const router = useRouter();
 	const searchParams = useSearchParams();
@@ -41,19 +40,20 @@ export function MemoList({ memos, memoTotalPage, tags }: Props) {
 	return (
 		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
 			<div>
-				<div className='m-1 flex items-center'>
-					<div className='mr-5 w-4/5'>
-						<MultipleSelectInput
-							selectedChips={selectedChips}
-							setSelectedChips={setSelectedChips}
-							labelPosition='left'
-							selectOptions={tags}
-							label='タグで検索'
-							placeholder='タグを選択してください'
-						/>
-					</div>
-					<div className='w-20'></div>
-				</div>
+				{/*NOTE::タグ機能実装後にコメントアウトを解除する*/}
+				{/*<div className='m-1 flex items-center'>*/}
+				{/*	<div className='mr-5 w-4/5'>*/}
+				{/*		<MultipleSelectInput*/}
+				{/*			selectedChips={selectedChips}*/}
+				{/*			setSelectedChips={setSelectedChips}*/}
+				{/*			labelPosition='left'*/}
+				{/*			selectOptions={tags}*/}
+				{/*			label='タグで検索'*/}
+				{/*			placeholder='タグを選択してください'*/}
+				{/*		/>*/}
+				{/*	</div>*/}
+				{/*	<div className='w-20'></div>*/}
+				{/*</div>*/}
 				<div className='m-1 flex items-center'>
 					<div className='mr-5 w-4/5'>
 						<Input
