@@ -67,7 +67,7 @@ export function MemoDetail({ memo }: Props) {
 				/>
 			</div>
 			<div className='mt-3'>
-				<Text>{memo.content}</Text>
+				<Text textParseFlg={true}>{memo.content}</Text>
 			</div>
 		</div>
 	);
