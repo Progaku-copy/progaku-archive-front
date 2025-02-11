@@ -85,7 +85,7 @@ const MultipleSelectInput = <T extends OptionType>({
 		<div className={labelPosition === 'left' ? 'flex items-center' : ''}>
 			<div
 				className={
-					labelPosition === 'left' ? 'inline-flex h-11 w-28 items-center' : ''
+					labelPosition === 'left' ? 'inline-flex h-11 w-32 items-center' : ''
 				}
 			>
 				{!!label && <Text>{label}</Text>}

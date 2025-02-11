@@ -2,11 +2,23 @@ import { cookies } from 'next/headers';
 
 import { MemoResponse } from '@/Types';
 
-export async function getMemos(queryParams?: string): Promise<MemoResponse> {
-	const queryString = queryParams ? `?${queryParams}` : '';
+// NOTE: メモ一覧を取得するAPI、クエリパラメータによって取得条件を変える
+export async function getMemos(params: {
+	[key: string]: string | undefined;
+}): Promise<MemoResponse> {
 	const cookieHeader = cookies().toString();
 
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos${queryString}`, {
+	// NOTE: undefinedのパラメータはクエリパラメータから除外する
+	const validParams: Record<string, string> = {};
+	Object.entries(params).forEach(([key, value]) => {
+		if (value !== undefined) {
+			validParams[key] = value;
+		}
+	});
+
+	const queryString = new URLSearchParams(validParams).toString();
+
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API}/memos?${queryString}`, {
 		method: 'GET',
 		credentials: 'include',
 		headers: {
