@@ -1,24 +1,27 @@
 'use client';
-import Text from '../Text';
-
-const BACKGROUND_COLORS = {
-	green: 'bg-green',
-	blue: 'bg-blue',
-};
+import Text from '@/components/Text';
 
 type Props = {
-	color: keyof typeof BACKGROUND_COLORS;
+	color: 'green' | 'red' | 'light-blue';
 	label: string;
 	handleClickButton: () => void;
+	disabled?: boolean;
 };
 
-const ColorButton = ({ color, label, handleClickButton }: Props) => {
+const ColorButton = ({ color, label, handleClickButton, disabled = false }: Props) => {
+	const colorClass = {
+		green: 'bg-green hover:bg-green-600',
+		red: 'bg-red hover:bg-red-600',
+		'light-blue': 'bg-light-blue hover:bg-blue-600',
+	};
+
 	return (
 		<button
-			className={`${BACKGROUND_COLORS[color]} w-28 rounded py-3 transition hover:opacity-75`}
+			className={`${colorClass[color]} rounded-lg px-6 py-2 text-white transition-colors ${disabled ? 'cursor-not-allowed opacity-70' : ''}`}
 			onClick={handleClickButton}
+			disabled={disabled}
 		>
-			<Text color='white'>{label}</Text>
+			<Text>{label}</Text>
 		</button>
 	);
 };

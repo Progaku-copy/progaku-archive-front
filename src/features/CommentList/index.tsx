@@ -10,9 +10,11 @@ type Props = {
 
 export function CommentList({ comments }: Props) {
 	return (
-		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
-			<Title isBold>コメント一覧</Title>
-			<div className='space-y-5'>
+		<div className='mx-auto mt-10 flex max-w-4xl flex-col justify-center gap-8 px-4 sm:px-8 md:px-16'>
+			<div className='mb-4'>
+				<Title isBold>コメント一覧</Title>
+			</div>
+			<div className='space-y-4'>
 				{comments.map((comment: Comment) => (
 					<CommentListItem
 						key={comment.id}

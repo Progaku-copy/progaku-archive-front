@@ -1,23 +1,21 @@
-import React from 'react';
+'use client';
 
 import Link from 'next/link';
 
+import Text from '@/components/Text';
+
 type Props = {
-	children: React.ReactNode;
 	href: string;
+	children: React.ReactNode;
 };
 
-const LinkText = ({ children, href }: Props) => {
+const LinkText = ({ href, children }: Props) => {
 	return (
 		<Link
 			href={href}
-			className='font-noto text-[24px] text-white transition-opacity duration-300 hover:opacity-70'
-			style={{ color: 'white' }}
-			onClick={(e) => {
-				e.preventDefault();
-			}}
+			className='text-white hover:underline'
 		>
-			{children}
+			<Text>{children}</Text>
 		</Link>
 	);
 };
