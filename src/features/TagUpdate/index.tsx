@@ -53,7 +53,7 @@ const TagUpdate = ({
 					<div className='flex justify-end'>
 						<ColorButton
 							label='タグを作成'
-							color='blue'
+							color='light-blue'
 							handleClickButton={createOnClickButton}
 						></ColorButton>
 					</div>
