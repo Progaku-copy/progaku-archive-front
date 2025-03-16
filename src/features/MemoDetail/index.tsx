@@ -15,7 +15,7 @@ export function MemoDetail({ memo }: Props) {
 			<div className='rounded-lg border border-gray-200 bg-white p-6 shadow-sm'>
 				<div className='mb-4 flex items-center justify-between'>
 					<div className='flex items-center'>
-						<div className='flex h-12 w-12 items-center justify-center rounded-full bg-light-blue text-white'>
+						<div className='flex size-12 items-center justify-center rounded-full bg-light-blue text-white'>
 							{memo.poster.charAt(0).toUpperCase()}
 						</div>
 						<Text

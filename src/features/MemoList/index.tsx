@@ -69,10 +69,10 @@ export function MemoList({ memos, memoTotalPage }: Props) {
 	return (
 		<div className='mx-auto mt-10 flex max-w-4xl flex-col justify-center gap-8 px-4 sm:px-8 md:px-16'>
 			<div className='mb-2 flex flex-col sm:flex-row sm:items-center'>
-				<div className='relative mb-2 flex-grow sm:mb-0 sm:mr-3'>
+				<div className='relative mb-2 grow sm:mb-0 sm:mr-3'>
 					<div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
 						<svg
-							className='h-5 w-5 text-gray-400'
+							className='size-5 text-gray-400'
 							fill='none'
 							stroke='currentColor'
 							viewBox='0 0 24 24'
@@ -100,7 +100,7 @@ export function MemoList({ memos, memoTotalPage }: Props) {
 							title='検索条件をクリア'
 						>
 							<svg
-								className='h-5 w-5'
+								className='size-5'
 								fill='none'
 								stroke='currentColor'
 								viewBox='0 0 24 24'
@@ -116,7 +116,7 @@ export function MemoList({ memos, memoTotalPage }: Props) {
 						</button>
 					)}
 				</div>
-				<div className='flex-shrink-0'>
+				<div className='shrink-0'>
 					<ColorButton
 						color='light-blue'
 						label='検索'

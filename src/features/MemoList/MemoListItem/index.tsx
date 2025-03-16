@@ -41,7 +41,7 @@ const MemoListItem = ({ memo }: Props) => {
 		>
 			<div className='flex items-center justify-between'>
 				<div className='flex items-center'>
-					<div className='flex h-10 w-10 items-center justify-center rounded-full bg-light-blue text-white'>
+					<div className='flex size-10 items-center justify-center rounded-full bg-light-blue text-white'>
 						{memo.poster.charAt(0).toUpperCase()}
 					</div>
 					<Text
