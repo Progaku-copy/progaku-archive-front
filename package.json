@@ -12,6 +12,7 @@
 		"plop": "plop"
 	},
 	"dependencies": {
+		"critters": "^0.0.25",
 		"date-fns": "^4.1.0",
 		"eslint-plugin-import": "^2.29.1",
 		"eslint-plugin-unused-imports": "^3.0.0",

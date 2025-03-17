@@ -75,7 +75,7 @@ const MemoListItem = ({ memo }: Props) => {
 				{isLongContent && !isExpanded && (
 					<div className='mt-3 text-right'>
 						<button
-							className='hover:text-blue-700 font-medium text-light-blue underline-offset-2 hover:underline'
+							className='font-medium text-light-blue underline-offset-2 hover:text-blue-600 hover:underline'
 							onClick={handleClickMore}
 						>
 							もっと見る
