@@ -1,10 +1,20 @@
+const FALLBACK_LABEL = '日時不明';
+
 /**
  * 日付を変換するカスタムフック
- * @param utcDateTimeString 想定文字列：「yyyy-MM-ddTHH:mm:ss.000Z」例）2024-09-15T10:12:14.000Z
+ * @param utcDateTimeString ISO8601(Z) 文字列（マイクロ秒精度も可）
  * @returns 「yyyy/dd/m hh:mm:ss」か「yyyy/dd/m hh:mm」の形式の文字列（JST)
  */
-export const useDateTime = (utcDateTimeString: string) => {
+export const useDateTime = (utcDateTimeString?: string) => {
+	if (!utcDateTimeString) {
+		return { dateWithSecond: FALLBACK_LABEL, dateWithoutSecond: FALLBACK_LABEL };
+	}
+
 	const utcDate = new Date(utcDateTimeString);
+	if (Number.isNaN(utcDate.getTime())) {
+		return { dateWithSecond: FALLBACK_LABEL, dateWithoutSecond: FALLBACK_LABEL };
+	}
+
 	const jstDate = new Date(utcDate.getTime() + 9 * 60 * 60 * 1000);
 	const year = jstDate.getFullYear();
 	const day = ('0' + jstDate.getDate()).slice(-2);

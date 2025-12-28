@@ -25,7 +25,8 @@ const CommentListItem = ({ comment }: Props) => {
 				</div>
 				<DateLabel
 					fontSize='s'
-					utcDateTimeString={comment.created_at}
+					label='Slack投稿日時'
+					utcDateTimeString={comment.slack_posted_at}
 				/>
 			</div>
 			<div className='mt-2 pl-11'>

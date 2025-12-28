@@ -8,8 +8,7 @@ export type Comment = {
 	memo_id: number;
 	poster: string;
 	content: string;
-	created_at: string;
-	updated_at: string;
+	slack_posted_at?: string;
 };
 
 export type MemoResponse = {
@@ -22,8 +21,7 @@ export type Memo = {
 	title: string;
 	content: string;
 	poster: string;
-	created_at: string;
-	updated_at: string;
+	slack_posted_at?: string;
 	comments: Comment[];
 	tags: Tag[];
 };

@@ -27,7 +27,8 @@ export function MemoDetail({ memo }: Props) {
 					</div>
 					<DateLabel
 						fontSize='s'
-						utcDateTimeString={memo.created_at}
+						label='Slack投稿日'
+						utcDateTimeString={memo.slack_posted_at}
 					/>
 				</div>
 

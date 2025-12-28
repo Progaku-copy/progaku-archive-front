@@ -8,6 +8,7 @@ import { Memo } from '@/Types';
 import DateLabel from '@/components/DateLabel';
 import Tag from '@/components/Tag';
 import Text from '@/components/Text';
+import Title from '@/components/Title';
 
 type Props = {
 	memo: Memo;
@@ -53,8 +54,18 @@ const MemoListItem = ({ memo }: Props) => {
 				</div>
 				<DateLabel
 					fontSize='s'
-					utcDateTimeString={memo.created_at}
+					label='Slack投稿日'
+					utcDateTimeString={memo.slack_posted_at}
 				/>
+			</div>
+
+			<div className='mt-1'>
+				<Title
+					isBold
+					textParseFlg={true}
+				>
+					{memo.title}
+				</Title>
 			</div>
 
 			{memo.tags.length > 0 && (
