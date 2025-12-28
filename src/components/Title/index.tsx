@@ -1,15 +1,21 @@
+'use client';
+
+import { ReactNode } from 'react';
+
 import useTextParser from '@/hooks/useTextParser';
 
-const FONT_SIZES = {
-	l: 'text-2.5xl',
-	m: 'text-2xl',
+export const FONT_SIZES = {
+	s: 'text-lg',
+	m: 'text-xl',
+	l: 'text-2xl',
 } as const;
 
 type Props = {
-	children: string;
+	children: ReactNode;
 	fontSize?: keyof typeof FONT_SIZES;
 	isBold?: boolean;
 	textParseFlg?: boolean;
+	className?: string;
 };
 
 const Title = ({
@@ -17,18 +23,20 @@ const Title = ({
 	fontSize = 'm',
 	isBold = false,
 	textParseFlg = false,
+	className = '',
 }: Props) => {
-	const fontBold = isBold ? 'font-bold' : '';
-	const parsedText = useTextParser(children as string);
+	const parsedText = useTextParser(String(children));
+
 	return (
-		<span
-			className={`font-noto ${FONT_SIZES[fontSize]} text-black ${fontBold}`}
-			dangerouslySetInnerHTML={
-				textParseFlg ? { __html: parsedText as string } : undefined
-			}
+		<div
+			className={`${FONT_SIZES[fontSize]} ${isBold ? 'font-bold' : ''} ${className}`}
 		>
-			{!textParseFlg ? children : null}
-		</span>
+			{textParseFlg ? (
+				<div dangerouslySetInnerHTML={{ __html: parsedText }} />
+			) : (
+				children
+			)}
+		</div>
 	);
 };
 

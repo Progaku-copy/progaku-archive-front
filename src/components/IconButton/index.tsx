@@ -1,43 +1,34 @@
 'use client';
 
-import Text from '../Text';
+import Text from '@/components/Text';
 
 const ICON_SIZES = {
-	m: 'h-8 w-8',
-	s: 'h-4 w-4',
+	s: 'w-6 h-6',
+	m: 'w-8 h-8',
+	l: 'w-10 h-10',
 } as const;
 
-const ICON_BUTTON_SIZES = {
-	m: 'h-10 w-10',
-	s: 'h-5 w-5',
-} as const;
-
-const ICON_TYPE = {
-	edit: 'i-ic-edit',
-	delete: 'i-ic-delete',
+const ICON_TYPES = {
+	edit: 'i-ic-baseline-edit',
+	delete: 'i-ic-baseline-delete',
 } as const;
 
 type Props = {
 	label?: string;
-	size?: keyof typeof ICON_SIZES;
-	iconType: keyof typeof ICON_TYPE;
-	onClickHandler: (...args: unknown[]) => unknown;
+	size: keyof typeof ICON_SIZES;
+	iconType: keyof typeof ICON_TYPES;
+	onClickHandler: () => void;
 };
 
-const IconButton = ({ label, size = 's', iconType, onClickHandler }: Props) => {
-	const buttonSizeClass = label ? 'w-20 h-15' : `${ICON_BUTTON_SIZES[size]} h-15`;
-	const iconClass = `${ICON_TYPE[iconType]} ${ICON_SIZES[size]} ${label ? 'm-0.5 p-2' : ICON_BUTTON_SIZES[size]}`;
-
+const IconButton = ({ label, size, iconType, onClickHandler }: Props) => {
 	return (
-		<div className={buttonSizeClass}>
-			<button
-				onClick={onClickHandler}
-				className={'flex items-center'}
-			>
-				<span className={iconClass}></span>
-				{label && <Text fontSize='m'>{label}</Text>}
-			</button>
-		</div>
+		<button
+			className='mx-1 flex flex-col items-center'
+			onClick={onClickHandler}
+		>
+			<div className={`${ICON_SIZES[size]} ${ICON_TYPES[iconType]}`}></div>
+			{label && <Text fontSize='s'>{label}</Text>}
+		</button>
 	);
 };
 

@@ -1,36 +1,46 @@
+'use client';
+
+import { ReactNode } from 'react';
+
 import useTextParser from '@/hooks/useTextParser';
 
 export const FONT_SIZES = {
-	l: 'text-xl',
+	s: 'text-sm',
 	m: 'text-base',
-	s: 'text-xs',
+	l: 'text-lg',
+} as const;
+
+export const TEXT_COLORS = {
+	black: 'text-black',
+	white: 'text-white',
 } as const;
 
 type Props = {
-	children: string | number;
+	children: ReactNode;
 	fontSize?: keyof typeof FONT_SIZES;
-	color?: string;
+	color?: keyof typeof TEXT_COLORS;
 	textParseFlg?: boolean;
+	className?: string;
 };
 
 const Text = ({
 	children,
 	fontSize = 'm',
-	color = 'black',
+	color,
 	textParseFlg = false,
+	className = '',
 }: Props) => {
-	const textColor = `text-${color}`;
-	const parsedText = useTextParser(children as string);
+	const parsedText = useTextParser(String(children));
+	const colorClass = color ? TEXT_COLORS[color] : '';
+
 	return (
-		<span
-			style={{ whiteSpace: 'pre-line' }}
-			className={`font-noto ${FONT_SIZES[fontSize]} ${textColor}`}
-			dangerouslySetInnerHTML={
-				textParseFlg ? { __html: parsedText as string } : undefined
-			}
-		>
-			{!textParseFlg ? children : null}
-		</span>
+		<div className={`${FONT_SIZES[fontSize]} ${colorClass} ${className}`}>
+			{textParseFlg ? (
+				<div dangerouslySetInnerHTML={{ __html: parsedText }} />
+			) : (
+				children
+			)}
+		</div>
 	);
 };
 

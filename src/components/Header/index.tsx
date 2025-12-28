@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
 			<div className='relative flex items-center justify-between px-4 py-3'>
 				<button
 					onClick={() => router.back()}
-					className='hover:bg-blue-700 absolute left-4 flex items-center rounded-lg px-3 py-2 text-white transition'
+					className='absolute left-4 flex items-center rounded-lg px-3 py-2 text-white transition hover:bg-blue-600'
 				>
 					<span className='text-lg'>&larr;</span>
 					<span className='ml-2'>戻る</span>

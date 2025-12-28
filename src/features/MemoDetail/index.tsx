@@ -4,67 +4,50 @@ import { Memo } from '@/Types';
 import DateLabel from '@/components/DateLabel';
 import Tag from '@/components/Tag';
 import Text from '@/components/Text';
-import Title from '@/components/Title';
 
 type Props = {
 	memo: Memo;
 };
 
 export function MemoDetail({ memo }: Props) {
-	// NOTE:編集、削除は行わないため、一端コメントアウト
-	// const onClickEditButton = (id: number) => {
-	// 	console.log('edit id', { id });
-	// };
-	// const onClickDeleteButton = (id: number) => {
-	// 	console.log('delete id', { id });
-	// };
-
 	return (
-		<div className='mt-10 flex flex-col justify-center gap-8 px-48'>
-			<div className='flex'>
-				<div className='mr-auto'>
-					<Text>{memo.poster}</Text>
-				</div>
-				{/*NOTE:編集、削除は行わないため、一端コメントアウト*/}
-				{/*<div className='flex'>*/}
-				{/*	<IconButton*/}
-				{/*		label='編集'*/}
-				{/*		size='s'*/}
-				{/*		iconType='edit'*/}
-				{/*		onClickHandler={() => onClickEditButton(memo.id)}*/}
-				{/*	></IconButton>*/}
-				{/*	<IconButton*/}
-				{/*		label='削除'*/}
-				{/*		size='s'*/}
-				{/*		iconType='delete'*/}
-				{/*		onClickHandler={() => onClickDeleteButton(memo.id)}*/}
-				{/*	></IconButton>*/}
-				{/*</div>*/}
-			</div>
-			<Title
-				fontSize='l'
-				isBold
-				textParseFlg={true}
-			>
-				{memo.title}
-			</Title>
-			<div className='flex flex-wrap'>
-				{memo.tags?.map((tag) => {
-					return (
-						<div className='mb-1 mr-1'>
-							<Tag key={tag.id}>{tag.name}</Tag>
+		<div className='mx-auto mt-10 flex max-w-4xl flex-col justify-center gap-8 px-4 sm:px-8 md:px-16'>
+			<div className='rounded-lg border border-gray-200 bg-white p-6 shadow-sm'>
+				<div className='mb-4 flex items-center justify-between'>
+					<div className='flex items-center'>
+						<div className='flex size-12 items-center justify-center rounded-full bg-light-blue text-white'>
+							{memo.poster.charAt(0).toUpperCase()}
 						</div>
-					);
-				})}
-			</div>
-			<div className='flex'>
-				<DateLabel
-					utcDateTimeString={memo.slack_posted_at}
-					label='Slack投稿日'
-				/>
-			</div>
-			<div className='mt-3'>
-				<Text textParseFlg={true}>{memo.content}</Text>
+						<Text
+							fontSize='l'
+							className='ml-4 font-medium'
+						>
+							{memo.poster}
+						</Text>
+					</div>
+					<DateLabel
+						fontSize='s'
+						label='Slack投稿日'
+						utcDateTimeString={memo.slack_posted_at}
+					/>
+				</div>
+
+				{memo.tags && memo.tags.length > 0 && (
+					<div className='mb-6 flex flex-wrap'>
+						{memo.tags.map((tag) => (
+							<div
+								className='mb-1 mr-2'
+								key={tag.id}
+							>
+								<Tag>{tag.name}</Tag>
+							</div>
+						))}
+					</div>
+				)}
+
+				<div className='rounded-lg bg-white p-2'>
+					<Text textParseFlg={true}>{memo.content}</Text>
+				</div>
 			</div>
 		</div>
 	);

@@ -1,14 +1,18 @@
-import Text from '../Text';
+'use client';
+
+import { ReactNode } from 'react';
+
+import Text from '@/components/Text';
 
 type Props = {
-	children: string | number;
+	children: ReactNode;
 };
 
 const Tag = ({ children }: Props) => {
 	return (
-		<span className='rounded-full bg-gray-200 px-2.5 py-1 text-xs'>
+		<div className='rounded-full bg-light-blue/90 px-3 py-1 text-white shadow-sm transition-colors hover:bg-light-blue/100'>
 			<Text fontSize='s'>{children}</Text>
-		</span>
+		</div>
 	);
 };
 

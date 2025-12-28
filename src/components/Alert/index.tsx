@@ -33,7 +33,7 @@ const Alert = ({ children, handleClickButton, alertType }: Props) => {
 				</div>
 				<div>
 					<ColorButton
-						color='blue'
+						color='light-blue'
 						label='OK'
 						handleClickButton={handleClickButton}
 					></ColorButton>

@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
 		label: 'Button',
-		color: 'blue',
+		color: 'light-blue',
 		handleClickButton: () => console.log('click'),
 	},
 };
