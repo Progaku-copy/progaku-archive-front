@@ -83,12 +83,11 @@ export const Default: Story = {
 	args: {
 		memo: {
 			poster: 'ユーザ名',
-			created_at: '2024/1/1',
+			slack_posted_at: '2024-09-07T07:45:33.195549Z',
 			title: 'メモタイトル',
 			tags: tags,
 			id: 1,
 			content: 'メモ内容',
-			updated_at: '2024/1/1',
 			comments: [],
 		},
 	},

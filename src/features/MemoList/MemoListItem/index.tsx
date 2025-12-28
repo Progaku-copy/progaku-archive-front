@@ -26,7 +26,8 @@ const MemoListItem = ({ memo }: Props) => {
 			<Text fontSize='l'>{memo.poster}</Text>
 			<DateLabel
 				fontSize='s'
-				utcDateTimeString={memo.created_at}
+				label='Slack投稿日'
+				utcDateTimeString={memo.slack_posted_at}
 			/>
 			<Title
 				isBold

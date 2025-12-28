@@ -14,7 +14,8 @@ const CommentListItem = ({ comment }: Props) => {
 			<Text fontSize='l'>{comment.poster}</Text>
 			<DateLabel
 				fontSize='s'
-				utcDateTimeString={comment.created_at}
+				label='Slack投稿日'
+				utcDateTimeString={comment.slack_posted_at}
 			/>
 			<Text textParseFlg={true}>{comment.content}</Text>
 		</div>
