@@ -57,14 +57,10 @@ export function MemoDetail({ memo }: Props) {
 					);
 				})}
 			</div>
-			<div className='flex space-x-2'>
+			<div className='flex'>
 				<DateLabel
-					utcDateTimeString={memo.created_at}
-					label='登録日時'
-				/>
-				<DateLabel
-					utcDateTimeString={memo.updated_at}
-					label='更新日時'
+					utcDateTimeString={memo.slack_posted_at}
+					label='Slack投稿日'
 				/>
 			</div>
 			<div className='mt-3'>

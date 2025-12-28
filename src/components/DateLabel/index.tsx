@@ -2,7 +2,7 @@ import { useDateTime } from '../../hooks/useDateTime';
 import Text, { FONT_SIZES } from '../Text';
 
 type Props = {
-	utcDateTimeString: string;
+	utcDateTimeString?: string;
 	label?: string;
 	fontSize?: keyof typeof FONT_SIZES;
 	color?: string;
